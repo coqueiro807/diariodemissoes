@@ -1,0 +1,824 @@
+<style>
+  /* Importa as fontes que definimos do Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Special+Elite&display=swap');
+
+  /* --- Configuração Global da Página --- */
+  html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* Para a rolagem do botão ficar suave */
+  }
+
+  body {
+    background-color: #F5F5DC; /* Nossa cor de fundo principal */
+    font-family: 'Roboto Slab', serif; /* Nossa fonte de texto padrão */
+    color: #333;
+  }
+
+  /* --- Correção Definitiva do Modo Escuro --- */
+  :root {
+    color-scheme: light only;
+  }
+</style>
+
+<div style="text-align: center; padding: 10px 20px 20px 20px; min-height: 120px; display: flex; justify-content: center; align-items: flex-end; background-color: #F5F5DC;">
+
+    <style>
+        /* Estilo para o container da animação */
+        .typewriter h1 {
+            font-family: 'Special Elite', monospace; /* <-- Fonte Obrigatória */
+            font-size: clamp(1.4em, 7vw, 2.6em); /* Fonte responsiva - TAMANHO AJUSTADO */
+            line-height: 1.2;
+            font-weight: bold;
+            color: #333;
+            overflow: hidden;
+            border-right: .15em solid #B22222; /* O cursor vermelho */
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .1em;
+            animation: 
+                typing 1.5s steps(20, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        /* Animação de digitação */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* Animação do cursor piscando */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #B22222; }
+        }
+    </style>
+
+    <div class="typewriter">
+        <h1>Cansados da Rotina?</h1>
+    </div>
+    
+</div>
+
+<div style="text-align: center; padding: 0px 20px 20px 20px; background-color: #F5F5DC;">
+    
+    <style>
+        /* Estilo para o subtítulo aparecer com atraso */
+        .subtitle-block {
+            opacity: 0; /* Começa invisível */
+            animation: fadeIn 1s ease-in-out 0.5s forwards; /* Animação com atraso de 0.5s para sincronizar com a digitação */
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+
+    <div class="subtitle-block">
+        <h2 style="font-family: 'Special Elite', monospace; font-size: 2.0em; line-height: 1.2; font-weight: normal;">O Jogo de 30 Dias que Reconecta Casais e Transforma Noites Comuns em Memórias Inesquecíveis.</h2>
+        <p style="font-family: 'Roboto Slab', serif; font-size: 1.0em; color: #555; margin-top: 20px;">A aventura divertida e fácil para fortalecer a cumplicidade sem sair de casa.</p>
+    </div>
+
+</div>
+<div style="background-color: #F5F5DC; text-align: center; padding: 20px 20px 30px 20px;">
+
+    <style>
+        .cta-button {
+            display: inline-block;
+            background-color: #B22222;
+            color: #FFFFFF;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            
+            /* --- AS MUDANÇAS ESTÃO AQUI --- */
+            opacity: 0; /* Começa invisível */
+            animation: 
+                fadeInButton 0.8s ease-in-out 0.5s forwards, /* Animação de surgimento com atraso de 2.5s */
+                pulse 2.5s infinite 0s; /* Animação de pulso começa DEPOIS que o botão aparece */
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #c82828;
+        }
+        
+        /* Animação de surgimento para o botão */
+        @keyframes fadeInButton {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animação de "pulso" */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+    </style>
+
+    <a href="https://pay.hotmart.com/F100778435S" class="cta-button">
+        EU QUERO ESTA AVENTURA!
+    </a>
+
+</div>
+
+<div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);">
+</div>
+
+<div style="background-color: #FFFFFF; text-align: center; padding: 15px 20px;">
+
+    <style>
+        /* As animações continuam as mesmas */
+        .problem-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .problem-column {
+            max-width: 280px;
+            margin: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+        .problem-column:nth-child(1) { animation-delay: 0.2s; }
+        .problem-column:nth-child(2) { animation-delay: 0.4s; }
+        .problem-column:nth-child(3) { animation-delay: 0.6s; }
+        @keyframes slideUpFadeIn { to { opacity: 1; transform: translateY(0); } }
+
+        .icon-clock { animation: ticktock 2s infinite ease-in-out; transform-origin: center; }
+        @keyframes ticktock { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(7deg); } }
+
+        .icon-phone { animation: vibrate 2s infinite ease-in-out; }
+        @keyframes vibrate { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
+        
+        .icon-heart { animation: heart-pulse 2s infinite ease-in-out; transform-origin: center; }
+        @keyframes heart-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    </style>
+
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="font-family: 'Special Elite', monospace; font-size: 2.2em; margin-bottom: 50px;">A rotina não precisa ser o fim do romance. Mas às vezes...</h2>
+        
+        <div class="problem-container">
+            
+            <div class="problem-column">
+                <svg class="icon-clock" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                    <path fill="#B22222" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+                    <path fill="#FFFFFF" d="M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"></path>
+                    <path fill="#333333" d="M12.5,7V12.25L16,14.25L15.25,15.5L11,13V7H12.5Z"></path>
+                </svg>
+                <h4 style="font-family: 'Roboto Slab', serif; font-size: 1.3em; margin-top: 15px; color: #333;">Falta de Tempo e Ideias</h4>
+                <p style="color: #555; line-height: 1.6;">As conversas viraram rotina e a criatividade para surpreender desapareceu com a correria.</p>
+            </div>
+            
+            <div class="problem-column">
+                <svg class="icon-phone" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                    <path fill="#555555" d="M17,1H7C5.89,1 5,1.89 5,3V21C5,22.11 5.9,23 7,23H17C18.11,23 19,22.11 19,21V3C19,1.89 18.1,1 17,1M17,19H7V5H17V19Z"></path>
+                    <rect fill="#F5F5DC" x="8" y="6" width="8" height="12"></rect>
+                </svg>
+                <h4 style="font-family: 'Roboto Slab', serif; font-size: 1.3em; margin-top: 15px; color: #333;">Distração com as Telas</h4>
+                <p style="color: #555; line-height: 1.6;">As noites a dois foram substituídas por cada um no seu próprio mundo digital, lado a lado no sofá.</p>
+            </div>
+            
+            <div class="problem-column">
+                <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                    <path fill="#B22222" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+                </svg>
+                <h4 style="font-family: 'Roboto Slab', serif; font-size: 1.3em; margin-top: 15px; color: #333;">A "Faísca" se Apagando</h4>
+                <p style="color: #555; line-height: 1.6;">Aquela sensação de borboletas no estômago e a vontade de flertar deram lugar ao conforto do piloto automático.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div style="height: 50px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);">
+</div>
+
+<div style="background-color: #F5F5DC; padding: 15px 20px; text-align: center;">
+
+    <style>
+        /* Animação para a imagem do mockup */
+        .solution-image {
+            opacity: 0;
+            transform: scale(0.95); /* Começa um pouco menor */
+            animation: scaleUpFadeIn 1s ease-out forwards;
+            animation-delay: 0.2s; /* Um pequeno atraso para começar */
+        }
+
+        @keyframes scaleUpFadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animação para o texto da solução */
+        .solution-text {
+            opacity: 0;
+            transform: translateY(20px); /* Começa um pouco para baixo */
+            animation: textSlideUpFadeIn 1s ease-out forwards;
+            animation-delay: 0.5s; /* Começa depois da imagem */
+        }
+
+        @keyframes textSlideUpFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h2 class="solution-text" style="font-family: 'Special Elite', monospace; font-size: 2.2em;">Apresentamos o "Diário de Missões": A Ferramenta para Sair do Piloto Automático</h2>
+        
+        <img class="solution-image" src="https://i.imgur.com/PjyvbLg.png" alt="Mockup do Diário de Missões" style="max-width: 100%; width: 700px; margin: 40px 0;">
+        
+        <p class="solution-text" style="font-size: 1.2em; color: #555; line-height: 1.6;">
+            O "Diário de Missões" é um jogo 100% digital para imprimir, que transforma 30 dias da sua vida em uma aventura romântica. Cada um se torna um agente secreto com a missão diária de surpreender o outro, seguindo nossas 60 cartas de missões criativas. É simples, divertido e desenhado para criar memórias inesquecíveis.
+        </p>
+    </div>
+</div>
+
+<div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);">
+</div>
+
+<div style="background-color: #FFFFFF; padding: 15px 20px;">
+
+    <style>
+        .value-stack-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .value-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Garante a responsividade no celular */
+            gap: 20px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: valueRowFadeIn 1s ease-out forwards;
+        }
+
+        /* Inverte a ordem da imagem e texto para cada linha par (efeito zig-zag) */
+        .value-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Adaptação para celular: todas as linhas começam com a imagem */
+        @media (max-width: 768px) {
+            .value-row, .value-row:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+
+        .value-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .value-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .value-text {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        @keyframes valueRowFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <div class="value-stack-container">
+        <h2 style="font-family: 'Special Elite', monospace; font-size: 2.2em; text-align: center; margin-bottom: 20px;">Um Kit Completo para 30 Dias de Reconexão</h2>
+        
+        <div class="value-row">
+            <div class="value-image">
+                <img src="https://i.imgur.com/OqxDc1J.png" alt="Mockup do Jogo Diário de Missões" style="box-shadow: none; border-radius: 0; width: 80%; display: block; margin: 0 auto;">
+            </div>
+            <div class="value-text">
+                <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.8em; color: #333;">60 Cartas de Missão Secretas"</h3>
+                <p style="color: #555; line-height: 1.6; font-size: 1.1em;">O coração do jogo. Cada carta é um convite único para a ação, com ideias que vão desde pequenos gestos de carinho até aventuras divertidas..</p>
+            </div>
+        </div>
+
+        <div class="value-row">
+            <div class="value-image">
+                <img src="https://i.imgur.com/66QTAIV.png" alt="Mockup do Jogo Diário de Missões" style="box-shadow: none; border-radius: 0;">
+            </div>
+            <div class="value-text">
+                <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.8em; color: #333;">Envelopes Temáticos e Diário de Bordo"</h3>
+                <p style="color: #555; line-height: 1.6; font-size: 1.1em;">Moldes para os envelopes e um Diário para cada um registrar as memórias e criar uma cápsula do tempo do relacionamento.</p>
+            </div>
+        </div>
+        
+        <div class="value-row" style="display: block; text-align: center;">
+            <div class="value-text">
+                <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.8em; color: #B22222;">E AINDA: 2 Bônus Exclusivos!</h3>
+                <p style="color: #555; line-height: 1.6; font-size: 1.1em;">Você leva também o "Planejador de Encontros" para manter a chama acesa e as "15 Perguntas para Elevar a Temperatura" para aprofundar a intimidade.</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div style="background-color: #FFFFFF; text-align: center; padding: 20px 20px 30px 20px;">
+
+    <style>
+        .cta-button {
+            display: inline-block;
+            background-color: #B22222; /* Nosso vermelho temático */
+            color: #FFFFFF;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            
+            /* Animações Sincronizadas */
+            opacity: 0; /* Começa invisível */
+            animation: 
+                fadeInButton 0.8s ease-in-out 2.5s forwards, /* Surge após o subtítulo */
+                pulse 2.5s infinite 3.3s; /* Pulsa depois de surgir */
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05); /* Aumenta um pouco ao passar o mouse */
+            background-color: #c82828; /* Um vermelho um pouco mais claro */
+        }
+        
+        /* Animação de surgimento para o botão */
+        @keyframes fadeInButton {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animação de "pulso" */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+    </style>
+
+    <a href="https://pay.hotmart.com/F100778435S" class="cta-button">
+        EU QUERO ESTA AVENTURA!
+    </a>
+
+</div>
+
+<div style="height: 50px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);">
+</div>
+
+<div style="background-color: #F5F5DC; padding: 15px 20px;">
+
+    <style>
+        .target-list-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .target-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            opacity: 0;
+            transform: translateY(20px); /* Ajustado para vir de baixo */
+            animation: bounceInFade 1s ease-out forwards; /* NOVA ANIMAÇÃO */
+        }
+
+        /* Atraso na animação para cada item da lista */
+        .target-item:nth-child(1) { animation-delay: 0.2s; }
+        .target-item:nth-child(2) { animation-delay: 0.3s; } /* Atrasos menores */
+        .target-item:nth-child(3) { animation-delay: 0.4s; }
+        .target-item:nth-child(4) { animation-delay: 0.5s; }
+        .target-item:nth-child(5) { animation-delay: 0.6s; }
+        .target-item:nth-child(6) { animation-delay: 0.7s; }
+        
+        .target-icon svg {
+            flex-shrink: 0;
+            transition: transform 0.3s ease-in-out; /* Transição para o hover */
+        }
+        
+        /* NOVO: Animação de hover para os ícones */
+        .target-item:hover .target-icon svg {
+            transform: scale(1.2) rotate(5deg); /* Aumenta e gira levemente */
+        }
+
+        /* NOVA ANIMAÇÃO: Surge com um "salto" suave */
+        @keyframes bounceInFade {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.8);
+            }
+            70% {
+                opacity: 1;
+                transform: translateY(-5px) scale(1.02); /* Passa um pouco do ponto final */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* NOVO: Animação para o título do bloco */
+        .block-title-animated {
+            opacity: 0;
+            transform: scale(0.9);
+            animation: zoomInFade 1s ease-out forwards;
+            animation-delay: 0.1s;
+        }
+
+        @keyframes zoomInFade {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* NOVO: Animação para o parágrafo final do bloco */
+        .final-paragraph-animated {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFadeIn 1s ease-out forwards;
+            animation-delay: 1.5s; /* Aparece depois de todos os itens */
+        }
+    </style>
+
+    <div class="target-list-container">
+        <h2 class="block-title-animated" style="font-family: 'Special Elite', monospace; font-size: 2.5em; text-align: center; margin-bottom: 50px;">O "Diário de Missões" é perfeito para casais que:</h2>
+        
+        <div class="target-item">
+            <div class="target-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4M7 22h10M12 2v20"></path><path d="M2 12h20"></path><path d="M5 7h14M5 17h14"></path></svg></div>
+            <div><strong>Sentem que a rotina tomou conta</strong> e querem uma forma criativa e divertida de quebrar o piloto automático.</div>
+        </div>
+        
+        <div class="target-item">
+            <div class="target-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><path d="M16 4h2a2 2 0 0 1 2 2v2"></path><path d="M12 16v4h4"></path><path d="M8 20H6a2 2 0 0 1-2-2v-2"></path><path d="M20 10V8l-4-4-4 4V8"></path></svg></div>
+            <div><strong>Amam a ideia de surpreender um ao outro,</strong> mas que na correria do dia a dia, às vezes falta tempo ou criatividade.</div>
+        </div>
+
+        <div class="target-item">
+            <div class="target-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"></path></svg></div>
+            <div><strong>Buscam novas formas de diálogo</strong> e de se conectar em um nível mais profundo, indo além das conversas sobre trabalho e contas.</div>
+        </div>
+
+        <div class="target-item">
+            <div class="target-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div>
+            <div><strong>Querem criar novas memórias afetivas</strong> e ter um "programa de casal" de qualidade, sem precisar sair de casa ou gastar muito.</div>
+        </div>
+        
+        <div class="target-item">
+            <div class="target-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 11l-4-2.5"></path><path d="M12 11l4-2.5"></path><path d="M12 11v4.5"></path><path d="M12 8l4 2.5"></path><path d="M12 8L8 10.5"></path></svg></div>
+            <div><strong>Estão em um bom momento,</strong> mas sabem que todo relacionamento precisa ser "regado" com intenção e carinho para continuar crescendo forte.</div>
+        </div>
+
+        <div class="target-item">
+            <div class="target-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.77-.77-.77a5.4 5.4 0 0 0-7.65 0C2.46 6.47 2.46 10 4 12l8 8 8-8c1.54-2 1.54-5.53 0-7.42z"></path><path d="M12 5.5V12l-4 4"></path></svg></div>
+            <div><strong>Procuram um presente criativo</strong> e significativo para aniversário de namoro ou casamento, que seja uma experiência e não apenas um objeto.</div>
+        </div>
+
+        <p class="final-paragraph-animated" style="font-family: 'Roboto Slab', serif; text-align: center; font-size: 1.2em; margin-top: 50px; font-weight: bold; color: #333;">Se vocês se encaixam em uma ou mais dessas descrições, este jogo é um presente para o seu relacionamento.</p>
+
+    </div>
+</div>
+
+<div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);">
+</div>
+
+<div style="background-color: #FFFFFF; padding: 15px 20px 40px 20px;">
+
+    <style>
+        .social-proof-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* --- Carousel Styles --- */
+        .carousel-container {
+            position: relative;
+            max-width: 300px; /* Largura do print */
+            margin: 40px auto 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: carouselFadeIn 1s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes carouselFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-viewport {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px -10px rgba(0,0,0,0.2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            min-width: 0;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Buttons */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .carousel-button:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-button--left {
+            left: -20px;
+        }
+
+        .carousel-button--right {
+            right: -20px;
+        }
+        
+        /* Make buttons smaller on mobile */
+        @media (max-width: 400px) {
+            .carousel-button--left {
+                left: -10px;
+            }
+            .carousel-button--right {
+                right: -10px;
+            }
+        }
+
+        .carousel-button.is-hidden {
+            display: none;
+        }
+        
+        /* Nav dots */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .carousel-indicator {
+            border: none;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            background: #dcdcdc;
+            cursor: pointer;
+            padding: 0;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .carousel-indicator:hover {
+            background-color: #c4c4c4;
+        }
+
+        .carousel-indicator.current-slide {
+            background: #B22222;
+            transform: scale(1.2);
+        }
+
+    </style>
+
+    <div class="social-proof-container">
+        <h2 style="font-family: 'Special Elite', monospace; font-size: 2.5em; margin-bottom: 20px;">Não Acredite Apenas em Nós...</h2>
+        <p style="font-size: 1.2em; color: #555; max-width: 700px; margin: 0 auto;">Veja o que casais reais, que aceitaram a missão, estão dizendo sobre a experiência!</p>
+        
+        <div class="carousel-container">
+            <button class="carousel-button carousel-button--left" aria-label="Depoimento Anterior">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+        
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                         <img src="https://i.imgur.com/e2O0mNr.jpeg" alt="Depoimento de cliente sobre o jogo de casal">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.imgur.com/CUtZtnP.jpeg" alt="Feedback de cliente sobre o Diário de Missões">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.imgur.com/paLovoF.jpeg" alt="Prova social de casal que jogou o Diário de Missões">
+                    </div>
+                </div>
+            </div>
+        
+            <button class="carousel-button carousel-button--right" aria-label="Próximo Depoimento">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        
+            <div class="carousel-nav">
+                <button class="carousel-indicator" aria-label="Ir para o depoimento 1"></button>
+                <button class="carousel-indicator" aria-label="Ir para o depoimento 2"></button>
+                <button class="carousel-indicator" aria-label="Ir para o depoimento 3"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="height: 50px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);">
+</div>
+
+<div id="oferta" style="padding: 15px 20px; background-color: #F5F5DC;">
+
+    <style>
+        .offer-box {
+            max-width: 800px; margin: 0 auto; border: 3px dashed #B22222; background-color: #fff;
+            padding: 40px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center; opacity: 0; transform: scale(0.95);
+            animation: zoomInOfferBox 1s ease-out forwards; animation-delay: 0.2s;
+        }
+
+        .final-price {
+            font-size: 2.5em; color: #B22222; margin: 10px 0; opacity: 0;
+            transform: scale(0.8);
+            animation: popInPrice 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+            animation-delay: 1s;
+        }
+
+        .guarantee-seal {
+            animation: pulse-seal 2.5s infinite; animation-delay: 2s;
+        }
+        
+        /* --- ESTILO DO NOVO BOTÃO --- */
+        .final-cta-button {
+            display: inline-block; background-color: #B22222; color: #FFFFFF;
+            font-family: 'Roboto Slab', serif; font-size: 1.5em; font-weight: bold;
+            padding: 20px 40px; text-decoration: none; border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: cta-shake 7s infinite ease-in-out; /* Animação sutil para chamar atenção */
+            animation-delay: 3s;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background-color: #c82828;
+        }
+        /* --- FIM DO ESTILO DO BOTÃO --- */
+
+        @keyframes zoomInOfferBox { to { opacity: 1; transform: scale(1); } }
+        @keyframes popInPrice { to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse-seal { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        @keyframes cta-shake { 0%, 10%, 100% { transform: rotate(0); } 2% { transform: rotate(-3deg); } 6% { transform: rotate(3deg); } 8% { transform: rotate(-1deg); } }
+    </style>
+
+    <div class="offer-box">
+        <h2 style="font-family: 'Special Elite', monospace; font-size: 2.0em; letter-spacing: 0.1em;">Comece sua Aventura a Dois Hoje Mesmo</h2>
+        <p style="font-size: 1.1em;">Diário de Missões + Planejador de Encontros + 15 Perguntas para Elevar a Temperatura</p>
+        <p style="font-size: 1.2em; color: #555;">Valor Total de Todos os Itens: <del>R$ 81,00</del></p>
+        <p style="font-size: 1.3em;">Por apenas:</p>
+        
+        <div class="final-price">
+            2x de R$ 9,95
+        </div>
+        
+        <p style="color: #555; font-weight: bold;"><em>(Oferta Especial de Lançamento)</em></p>
+        <br>
+        
+        <a href="https://pay.hotmart.com/F100778435S" class="final-cta-button">
+            SIM, ACEITO A MISSÃO!
+        </a>
+        
+        <p style="margin-top: 15px; font-size: 0.9em; color: #888;">Acesso imediato via e-mail | Compra 100% Segura</p>
+        <br>
+        
+        <img class="guarantee-seal" src="https://i.imgur.com/rR8DWlX.png" alt="Garantia de 7 dias" style="width: 100px; margin-bottom: 10px;">
+        
+        <p style="font-size: 1.1em; font-weight: bold;">Sua Satisfação ou Seu Dinheiro de Volta</p>
+        <p style="max-width: 600px; margin: 10px auto; color: #555; line-height: 1.6;">Temos tanta confiança no poder de conexão do "Diário de Missões" que oferecemos uma Garantia Incondicional de 7 Dias. Se não amar a experiência, basta nos enviar um único e-mail e nós devolveremos 100% do seu investimento.</p>
+    </div>
+
+</div>
+
+<div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);">
+</div>
+
+<div style="background-color: #FFFFFF; padding: 15px 20px;">
+
+    <style>
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #EAEAEA; /* Linha fina para separar as perguntas */
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none; /* Remove a linha do último item */
+        }
+        
+        .faq-question {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .faq-title-animated {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: faqTitleFadeIn 1s ease-out forwards;
+        }
+
+        @keyframes faqTitleFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <div class="faq-container">
+        <h2 class="faq-title-animated" style="font-family: 'Special Elite', monospace; font-size: 2.5em; text-align: center; margin-bottom: 50px;">Ainda tem alguma dúvida?</h2>
+        
+        <div class="faq-item">
+            <p class="faq-question">1. Como vou receber o "Diário de Missões"?</p>
+            <p class="faq-answer">O acesso é imediato! Assim que seu pagamento for confirmado, você receberá um e-mail com um link exclusivo para baixar todos os arquivos (o jogo principal e os bônus) em formato PDF.</p>
+        </div>
+        
+        <div class="faq-item">
+            <p class="faq-question">2. Posso imprimir em casa?</p>
+            <p class="faq-answer">Sim! O jogo foi desenhado para ser impresso facilmente em qualquer impressora caseira, seja ela colorida ou preto e branco.</p>
+        </div>
+        
+        <div class="faq-item">
+            <p class="faq-question">3. Qual papel você recomenda?</p>
+            <p class="faq-answer">Para uma experiência premium, recomendamos um papel mais grosso (120g/m² ou 180g/m²) para as cartas e envelopes. Mas ele funciona perfeitamente no sulfite comum.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">4. O pagamento é seguro?</p>
+            <p class="faq-answer">Totalmente seguro. Todo o processo de pagamento é gerenciado pela Hotmart, uma das maiores e mais seguras plataformas de produtos digitais do mundo.</p>
+        </div>
+        
+    </div>
+</div><link rel="stylesheet" href="/index.css">
+<script type="module" src="/index.tsx"></script>
