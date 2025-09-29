@@ -1,4 +1,4 @@
-import { inject } from "@vercel/analytics";
+import { inject } from "https://aistudiocdn.com/@vercel/analytics@^1.5.0";
 
 inject();
 
