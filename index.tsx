@@ -1,3 +1,7 @@
+import { inject } from "@vercel/analytics";
+
+inject();
+
 const initCarousel = () => {
     const track = document.querySelector<HTMLElement>('.carousel-track');
     if (!track) return;
@@ -12,18 +16,14 @@ const initCarousel = () => {
     const dots = Array.from(dotsNav.children) as HTMLButtonElement[];
     
     let currentIndex = 0;
-    let slideWidth = slides[0].getBoundingClientRect().width;
 
-    const updateCarousel = (targetIndex: number, isResize = false) => {
-        if (!isResize) {
-            if (targetIndex < 0 || targetIndex >= slides.length) return;
-        }
+    const updateCarousel = (targetIndex: number) => {
+        // Boundary check
+        if (targetIndex < 0 || targetIndex >= slides.length) return;
         
-        if (isResize) {
-             slideWidth = slides[0].getBoundingClientRect().width;
-             if (slideWidth === 0) return;
-             targetIndex = currentIndex;
-        }
+        // Ensure slides are loaded and have width
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        if (slideWidth === 0) return;
 
         const currentDot = dots[currentIndex];
         const targetDot = dots[targetIndex];
@@ -35,16 +35,9 @@ const initCarousel = () => {
             targetDot.classList.add('current-slide');
         }
 
-        if (targetIndex === 0) {
-            prevButton.classList.add('is-hidden');
-            nextButton.classList.remove('is-hidden');
-        } else if (targetIndex === slides.length - 1) {
-            prevButton.classList.remove('is-hidden');
-            nextButton.classList.add('is-hidden');
-        } else {
-            prevButton.classList.remove('is-hidden');
-            nextButton.classList.remove('is-hidden');
-        }
+        // Update button visibility
+        prevButton.classList.toggle('is-hidden', targetIndex === 0);
+        nextButton.classList.toggle('is-hidden', targetIndex === slides.length - 1);
         
         currentIndex = targetIndex;
     };
@@ -66,22 +59,33 @@ const initCarousel = () => {
         }
     });
 
+    // Recalculate on resize to handle orientation changes
     window.addEventListener('resize', () => {
-        updateCarousel(currentIndex, true);
+        // Use a small timeout to let the layout settle before recalculating
+        setTimeout(() => updateCarousel(currentIndex), 100);
     });
-
-    if(dots.length > 0) {
-        dots[0].classList.add('current-slide');
-    }
-    prevButton.classList.add('is-hidden');
     
+    // Initial setup logic
+    const setup = () => {
+      if(dots.length > 0) {
+          dots[0].classList.add('current-slide');
+      }
+      prevButton.classList.add('is-hidden');
+      // Set the initial position correctly
+      updateCarousel(0);
+    }
+
+    // Ensure the first image is loaded before calculating dimensions
     const firstImage = slides[0]?.querySelector('img');
     if (firstImage) {
         if (firstImage.complete) {
-            updateCarousel(currentIndex, true);
+            setup();
         } else {
-            firstImage.onload = () => updateCarousel(currentIndex, true);
+            firstImage.onload = () => setup();
         }
+    } else {
+        // If no images, setup immediately
+        setup();
     }
 };
 
