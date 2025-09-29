@@ -49,6 +49,11 @@
     
         <style>
             /* Estilo para o container da animação */
+            .typewriter {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
             .typewriter h1 {
                 font-family: 'Special Elite', monospace; /* <-- Fonte Obrigatória */
                 font-size: clamp(1.4em, 7vw, 2.6em); /* Fonte responsiva - TAMANHO AJUSTADO */
@@ -75,17 +80,6 @@
             @keyframes blink-caret {
                 from, to { border-color: transparent }
                 50% { border-color: #B22222; }
-            }
-    
-            /* Correção para responsividade em celulares */
-            @media (max-width: 480px) {
-                .typewriter h1 {
-                    white-space: normal; /* Permite que o texto quebre em múltiplas linhas */
-                    border-right: none; /* Remove o cursor, que não funciona bem em múltiplas linhas */
-                    animation: fadeIn 1s forwards; /* Substitui a animação de digitação por um fade-in simples */
-                    opacity: 0; /* Começa invisível para o fade-in funcionar */
-                    width: auto; /* Garante que o container se ajuste ao texto quebrado */
-                }
             }
         </style>
     
@@ -114,7 +108,7 @@
     <div style="background-color: #F5F5DC; text-align: center; padding: 20px 20px 30px 20px;">
     
         <style>
-            .cta-button {
+            .cta-button-hero {
                 display: inline-block;
                 background-color: #B22222;
                 color: #FFFFFF;
@@ -130,11 +124,11 @@
                 /* --- AS MUDANÇAS ESTÃO AQUI --- */
                 opacity: 0; /* Começa invisível */
                 animation: 
-                    fadeInButton 0.8s ease-in-out 0.5s forwards, /* Animação de surgimento com atraso de 2.5s */
-                    pulse 2.5s infinite 0s; /* Animação de pulso começa DEPOIS que o botão aparece */
+                    fadeInButton 1s ease-in-out 0.5s forwards, /* Animação de surgimento sincronizada com o subtítulo */
+                    pulse 2.5s infinite 1.5s; /* Animação de pulso começa DEPOIS que o botão aparece */
             }
     
-            .cta-button:hover {
+            .cta-button-hero:hover {
                 transform: scale(1.05);
                 background-color: #c82828;
             }
@@ -154,7 +148,7 @@
             }
         </style>
     
-        <a href="https://pay.hotmart.com/F100778435S" class="cta-button">
+        <a href="https://pay.hotmart.com/F100778435S" class="cta-button-hero">
             EU QUERO ESTA AVENTURA!
         </a>
     
