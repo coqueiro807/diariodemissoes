@@ -63,11 +63,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               opacity: 0;
           }
       }
+      /* --- Cards Como Funciona --- */
+.steps-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.step-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 260px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+.step-card h3 {
+  color: #B22222;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.step-card p {
+  font-size: 0.95em;
+  color: #444;
+  line-height: 1.4;
+}
+
     </style>
 </head>
 <body>
 
-    <div style="text-align: center; padding: 10px 20px 20px 20px; min-height: 120px; display: flex; justify-content: center; align-items: flex-end; background-color: #F5F5DC;">
+    <div style="text-align: center; padding: 10px 20px 20px 20px; display: flex; justify-content: center; align-items: center; background-color: #F5F5DC;">
     
         <style>
             /* Estilo para o container da animação */
@@ -106,7 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <div class="typewriter">
-            <h1>Cansados da Rotina?</h1>
+            <h1>Vocês ainda se amam, mas a rotina está afastando vocês?</h1>
         </div>
         
     </div>
@@ -122,57 +153,67 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <div class="subtitle-block">
-            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.0em; line-height: 1.2; font-weight: normal;">O Jogo de 30 Dias que Reconecta Casais e Transforma Noites Comuns em Memórias Inesquecíveis.</h2>
-            <p style="font-family: 'Roboto Slab', serif; font-size: 1.0em; color: #555; margin-top: 20px;">A aventura divertida e fácil para fortalecer a cumplicidade sem sair de casa.</p>
+            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.0em; line-height: 1.2; font-weight: normal;">60 missões simples pra reacender a conexão em 30 dias.</h2>
+            <p style="font-family: 'Roboto Slab', serif; font-size: 1.0em; color: #555; margin-top: 20px;">Pequenos momentos que reconectam vocês todos os dias.</p>
         </div>
     
-    </div>
     <div style="background-color: #F5F5DC; text-align: center; padding: 20px 20px 30px 20px;">
-    
-        <style>
-            .cta-button-hero {
-                display: inline-block;
-                background-color: #B22222;
-                color: #FFFFFF;
-                font-family: 'Roboto Slab', serif;
-                font-size: 1.2em;
-                font-weight: bold;
-                padding: 15px 35px;
-                text-decoration: none;
-                border-radius: 8px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                transition: transform 0.3s ease, background-color 0.3s ease;
-                
-                /* --- AS MUDANÇAS ESTÃO AQUI --- */
-                opacity: 0; /* Começa invisível */
-                animation: 
-                    fadeInButton 1s ease-in-out 0.5s forwards, /* Animação de surgimento sincronizada com o subtítulo */
-                    pulse 2.5s infinite 1.5s; /* Animação de pulso começa DEPOIS que o botão aparece */
-            }
-    
-            .cta-button-hero:hover {
-                transform: scale(1.05);
-                background-color: #c82828;
-            }
-            
-            /* Animação de surgimento para o botão */
-            @keyframes fadeInButton {
-                to {
-                    opacity: 1;
-                }
-            }
-    
-            /* Animação de "pulso" */
-            @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.03); }
-                100% { transform: scale(1); }
-            }
-        </style>
-    
-        <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">
-            EU QUERO ESTA AVENTURA!
-        </a>
+
+    <style>
+        .cta-button-hero {
+            display: inline-block;
+            background-color: #B22222;
+            color: #FFFFFF;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+
+            opacity: 0;
+            animation:
+                fadeInButton 1s ease-in-out 0.5s forwards,
+                pulse 2.5s infinite 1.5s;
+        }
+
+        .cta-button-hero:hover {
+            transform: scale(1.05);
+            background-color: #c82828;
+        }
+
+        @keyframes fadeInButton {
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-microtext {
+            margin-top: 10px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 0.85em;
+            color: #666;
+            opacity: 0;
+            animation: fadeInButton 1s ease-in-out 0.8s forwards;
+        }
+    </style>
+
+    <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">
+        COMEÇAR HOJE!
+    </a>
+
+    <p class="cta-microtext">
+        Acesso imediato • Compra 100% segura • Garantia de 7 dias
+    </p>
+
+</div>
+
     
     </div>
     
@@ -285,13 +326,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <div style="max-width: 800px; margin: 0 auto;">
-            <h2 class="solution-text" style="font-family: 'Special Elite', monospace; font-size: 2.2em;">Apresentamos o "Diário de Missões": A Ferramenta para Sair do Piloto Automático</h2>
+            <h2 class="solution-text" style="font-family: 'Special Elite', monospace; font-size: 2.2em;">Como Funciona Na Prática</h2>
             
-            <img class="solution-image" src="https://i.imgur.com/PjyvbLg.png" alt="Mockup do Diário de Missões" style="max-width: 100%; width: 700px; margin: 40px 0;">
-            
-            <p class="solution-text" style="font-size: 1.2em; color: #555; line-height: 1.6;">
-                O "Diário de Missões" é um jogo 100% digital para imprimir, que transforma 30 dias da sua vida em uma aventura romântica. Cada um se torna um agente secreto com a missão diária de surpreender o outro, seguindo nossas 60 cartas de missões criativas. É simples, divertido e desenhado para criar memórias inesquecíveis.
-            </p>
+           
+<div class="steps-container">
+
+  <div class="step-card">
+    <h3>1. Escolham começar</h3>
+    <p>Vocês decidem viver o desafio por 30 dias e reservam alguns minutos por dia um para o outro.</p>
+  </div>
+
+  <div class="step-card">
+    <h3>2. Cumpram a missão do dia</h3>
+    <p>Uma carta simples guia o que fazer, dizer ou sentir — sem pressão, sem constrangimento.</p>
+  </div>
+
+  <div class="step-card">
+    <h3>3. Criem novos momentos juntos</h3>
+    <p>Aos poucos, a conversa volta, o clima muda e a conexão reaparece.</p>
+  </div>
+
+</div>
+
+<img class="solution-image" src="https://i.imgur.com/PjyvbLg.png" alt="Mockup do Diário de Missões" style="max-width: 100%; width: 700px; margin: 40px 0;">
+
         </div>
     </div>
     
@@ -353,7 +411,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <div class="value-stack-container">
-            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.2em; text-align: center; margin-bottom: 20px;">Um Kit Completo para 30 Dias de Reconexão</h2>
+            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.2em; text-align: center; margin-bottom: 20px;">Tudo o Que Vocês Precisam Para Se Reconectar Em 30 Dias</h2>
             
             <div class="value-row">
                 <div class="value-image">
@@ -361,7 +419,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div class="value-text">
                     <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.8em; color: #333;">60 Cartas de Missão Secretas"</h3>
-                    <p style="color: #555; line-height: 1.6; font-size: 1.1em;">O coração do jogo. Cada carta é um convite único para a ação, com ideias que vão desde pequenos gestos de carinho até aventuras divertidas..</p>
+                    <p style="color: #555; line-height: 1.6; font-size: 1.1em;">Cada missão foi criada para quebrar a rotina, abrir conversas e criar momentos que vocês não estão vivendo hoje. São convites simples que mudam o clima do relacionamento dia após dia.</p>
                 </div>
             </div>
     
@@ -371,14 +429,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
                 <div class="value-text">
                     <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.8em; color: #333;">Envelopes Temáticos e Diário de Bordo"</h3>
-                    <p style="color: #555; line-height: 1.6; font-size: 1.1em;">Moldes para os envelopes e um Diário para cada um registrar as memórias e criar uma cápsula do tempo do relacionamento.</p>
+                    <p style="color: #555; line-height: 1.6; font-size: 1.1em;">Para transformar o desafio em algo real: guardar memórias, registrar sentimentos e criar uma história que vocês construíram juntos.</p>
                 </div>
             </div>
             
             <div class="value-row" style="display: block; text-align: center;">
                 <div class="value-text">
-                    <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.8em; color: #B22222;">E AINDA: 2 Bônus Exclusivos!</h3>
-                    <p style="color: #555; line-height: 1.6; font-size: 1.1em;">Você leva também o "Planejador de Encontros" para manter a chama acesa e as "15 Perguntas para Elevar a Temperatura" para aprofundar a intimidade.</p>
+                    <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.8em; color: #B22222;">E Para Aprofundar Ainda Mais a Conexão, Vocês Também Recebem:</h3>
+                    <p style="color: #555; line-height: 1.6; font-size: 1.1em;">Além do desafio principal, vocês recebem dois bônus para aprofundar ainda mais a conexão: um Planejador de Encontros para sair da rotina sem complicação e as 15 Perguntas para Elevar a Temperatura para reacender a intimidade e criar conversas que vocês não têm no dia a dia.</p>
                 </div>
             </div>
             
@@ -416,7 +474,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button">
-            EU QUERO ESTA AVENTURA!
+            COMEÇAR HOJE!
         </a>
     
     </div>
@@ -504,11 +562,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <div class="target-list-container">
-            <h2 class="block-title-animated" style="font-family: 'Special Elite', monospace; font-size: 2.5em; text-align: center; margin-bottom: 50px;">O "Diário de Missões" é perfeito para casais que:</h2>
+            <h2 class="block-title-animated" style="font-family: 'Special Elite', monospace; font-size: 2.5em; text-align: center; margin-bottom: 50px;">O Diário de Missões é para casais que:</h2>
             
             <div class="target-item">
                 <div class="target-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4M7 22h10M12 2v20"></path><path d="M2 12h20"></path><path d="M5 7h14M5 17h14"></path></svg></div>
-                <div><strong>Sentem que a rotina tomou conta</strong> e querem uma forma criativa e divertida de quebrar o piloto automático.</div>
+                <div><strong>Sentem que a rotina criou distância</strong> e querem se reconectar sem pressão.</div>
             </div>
             
             <div class="target-item">
@@ -536,7 +594,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <div><strong>Procuram um presente criativo</strong> e significativo para aniversário de namoro ou casamento, que seja uma experiência e não apenas um objeto.</div>
             </div>
     
-            <p class="final-paragraph-animated" style="font-family: 'Roboto Slab', serif; text-align: center; font-size: 1.2em; margin-top: 50px; font-weight: bold; color: #333;">Se vocês se encaixam em uma ou mais dessas descrições, este jogo é um presente para o seu relacionamento.</p>
+            <p class="final-paragraph-animated" style="font-family: 'Roboto Slab', serif; text-align: center; font-size: 1.2em; margin-top: 50px; font-weight: bold; color: #333;">Se vocês se identificam com uma ou mais dessas frases, este desafio pode ser o primeiro passo para se reconectarem.</p>
     
         </div>
     </div>
@@ -669,8 +727,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <div class="social-proof-container">
-            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.5em; margin-bottom: 20px;">Não Acredite Apenas em Nós...</h2>
-            <p style="font-size: 1.2em; color: #555; max-width: 700px; margin: 0 auto;">Veja o que casais reais, que aceitaram a missão, estão dizendo sobre a experiência!</p>
+            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.5em; margin-bottom: 20px;">Casais Que Decidiram Tentar</h2>
+            <p style="font-size: 1.2em; color: #555; max-width: 700px; margin: 0 auto;">Veja Como Pequenos Gestos Mudaram o Clima Entre Eles.</p>
             
             <div class="carousel-container">
                 <button class="carousel-button carousel-button--left" aria-label="Depoimento Anterior">
@@ -753,8 +811,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </style>
     
         <div class="offer-box">
-            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.0em; letter-spacing: 0.1em;">Comece sua Aventura a Dois Hoje Mesmo</h2>
-            <p style="font-size: 1.1em;">Diário de Missões + Planejador de Encontros + 15 Perguntas para Elevar a Temperatura</p>
+            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.0em; letter-spacing: 0.1em;">Vocês Podem Começar Hoje</h2>
+            <p style="font-size: 1.1em;">Diário de Missões + Planejador de Encontros + 15 Perguntas para Elevar a Temperatura. Um Desafio De 30 Dias Para Se Reconectar, Mesmo Com a Rotina.</p>
             <p style="font-size: 1.2em; color: #555;">Valor Total de Todos os Itens: <del>R$ 69,90</del></p>
             <p style="font-size: 1.3em;">Por apenas:</p>
             
@@ -766,16 +824,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <br>
             
             <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="final-cta-button">
-                SIM, ACEITO A MISSÃO!
+                COMEÇAR HOJE!
             </a>
             
-            <p style="margin-top: 15px; font-size: 0.9em; color: #888;">Acesso imediato via e-mail | Compra 100% Segura</p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #888;">Acesso imediato • Compra 100% segura • Garantia de 7 dias</p>
             <br>
             
             <img class="guarantee-seal" src="https://i.imgur.com/rR8DWlX.png" alt="Garantia de 7 dias" style="width: 100px; margin-bottom: 10px;">
             
             <p style="font-size: 1.1em; font-weight: bold;">Sua Satisfação ou Seu Dinheiro de Volta</p>
-            <p style="max-width: 600px; margin: 10px auto; color: #555; line-height: 1.6;">Temos tanta confiança no poder de conexão do "Diário de Missões" que oferecemos uma Garantia Incondicional de 7 Dias. Se não amar a experiência, basta nos enviar um único e-mail e nós devolveremos 100% do seu investimento.</p>
+            <p style="max-width: 600px; margin: 10px auto; color: #555; line-height: 1.6;">Teste o Diário de Missões por 7 dias.
+Se não sentirem nenhuma diferença na conexão, é só nos avisar — e devolvemos 100% do valor, sem perguntas, sem burocracia.</p>
         </div>
     
     </div>
