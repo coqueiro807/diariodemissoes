@@ -1,219 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KFMX9LPF');</script>
-<!-- End Google Tag Manager -->;
-        
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diário de Missões</title>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KFMX9LPF');</script>
 
-    <style>
-      /* Importa as fontes que definimos do Google Fonts */
-      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Special+Elite&display=swap');
-    
-      /* --- Configuração Global da Página --- */
-      html, body {
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth; /* Para a rolagem do botão ficar suave */
-      }
-    
-      body {
-        background-color: #F5F5DC; /* Nossa cor de fundo principal */
-        font-family: 'Roboto Slab', serif; /* Nossa fonte de texto padrão */
-        color: #333;
-        overflow-x: hidden; /* Previne a rolagem horizontal que estava quebrando o layout */
-      }
-    
-      /* --- Correção Definitiva do Modo Escuro --- */
-      :root {
-        color-scheme: light only;
-      }
-    
-      /* Animação global de fade-in para reutilização */
-      @keyframes fadeIn {
-        to { opacity: 1; }
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário de Missões</title>
 
-      /* --- Estilos para a Animação de Corações --- */
-      .touch-heart {
-          position: fixed; /* Posicionamento relativo à janela */
-          pointer-events: none; /* Garante que os corações não interfiram com cliques */
-          z-index: 9999;
-          transform: translate(-50%, -50%); /* Centraliza o emoji no ponto do toque */
-          /* A animação é aplicada via JavaScript para incluir aleatoriedade */
-      }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Special+Elite&display=swap');
 
-      @keyframes floatUpAndAway {
-          0% {
-              transform: translate(-50%, -50%) scale(1);
-              opacity: 1;
-          }
-          100% {
-              /* Usa variáveis CSS para uma animação dinâmica e aleatória */
-              transform: translate(calc(-50% + var(--drift)), -150px) scale(0) rotate(var(--rotation));
-              opacity: 0;
-          }
-      }
-      /* --- Cards Como Funciona --- */
-.steps-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 30px 0;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
-.step-card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 260px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  font-family: 'Roboto Slab', serif;
-}
+    body {
+      background-color: #F5F5DC;
+      font-family: 'Roboto Slab', serif;
+      color: #333;
+      overflow-x: hidden;
+    }
 
-.step-card h3 {
-  color: #B22222;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-}
+    :root { color-scheme: light only; }
 
-.step-card p {
-  font-size: 0.95em;
-  color: #444;
-  line-height: 1.4;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-    </style>
+    /* HERO */
+    .hero {
+      text-align: center;
+      background-color: #F5F5DC;
+      padding: 64px 20px 18px 20px; /* espaçamento equilibrado */
+    }
+
+    .hero-subtitle {
+      font-family: 'Special Elite', monospace;
+      font-size: clamp(1.5em, 6.5vw, 2.2em);
+      line-height: 1.2;
+      font-weight: normal;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeIn 0.9s ease-in-out forwards;
+    }
+
+    .hero-line {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.0em;
+      color: #555;
+      margin: 32px auto 0 auto;
+      max-width: 620px;
+      line-height: 1.4;
+      opacity: 0;
+      animation: fadeIn 0.9s ease-in-out 0.2s forwards;
+    }
+
+    /* CTA */
+    .cta-wrap {
+      background-color: #F5F5DC;
+      text-align: center;
+      padding: 20px 20px 40px 20px;
+    }
+
+    .cta-button-hero {
+      display: inline-block;
+      background-color: #B22222;
+      color: #FFFFFF;
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.2em;            /* TAMANHO ORIGINAL */
+      font-weight: bold;
+      padding: 15px 35px;          /* TAMANHO ORIGINAL */
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 0.9s ease-in-out 0.35s forwards;
+    }
+
+    .cta-button-hero:hover {
+      transform: scale(1.05);
+      background-color: #c82828;
+    }
+
+    .cta-microtext {
+      margin: 12px auto 0 auto;
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.85em;
+      color: #666;
+      line-height: 1.35;
+      max-width: 380px;
+      opacity: 0;
+      animation: fadeIn 0.9s ease-in-out 0.45s forwards;
+    }
+  </style>
 </head>
+
 <body>
 
-    <div style="text-align: center; padding: 10px 20px 20px 20px; display: flex; justify-content: center; align-items: center; background-color: #F5F5DC;">
-    
-        <style>
-            /* Estilo para o container da animação */
-            .typewriter {
-                display: inline-block;
-                vertical-align: bottom;
-            }
+  <section class="hero">
+    <h3 class="hero-subtitle">
+      Vocês ainda se amam… mas a rotina está afastando vocês?
+    </h3>
 
-            .typewriter h1 {
-                font-family: 'Special Elite', monospace; /* <-- Fonte Obrigatória */
-                font-size: clamp(1.4em, 7vw, 2.6em); /* Fonte responsiva - TAMANHO AJUSTADO */
-                line-height: 1.2;
-                font-weight: bold;
-                color: #333;
-                overflow: hidden;
-                border-right: .15em solid #B22222; /* O cursor vermelho */
-                white-space: nowrap;
-                margin: 0 auto;
-                letter-spacing: .1em;
-                animation: 
-                    typing 1.5s steps(20, end),
-                    blink-caret .75s step-end infinite;
-            }
-    
-            /* Animação de digitação */
-            @keyframes typing {
-                from { width: 0 }
-                to { width: 100% }
-            }
-    
-            /* Animação do cursor piscando */
-            @keyframes blink-caret {
-                from, to { border-color: transparent }
-                50% { border-color: #B22222; }
-            }
-        </style>
-    
-        <div class="typewriter">
-            <h1>Vocês ainda se amam, mas a rotina está afastando vocês?</h1>
-        </div>
-        
-    </div>
-    
-    <div style="text-align: center; padding: 0px 20px 20px 20px; background-color: #F5F5DC;">
-        
-        <style>
-            /* Estilo para o subtítulo aparecer com atraso */
-            .subtitle-block {
-                opacity: 0; /* Começa invisível */
-                animation: fadeIn 1s ease-in-out 0.5s forwards; /* Animação com atraso de 0.5s para sincronizar com a digitação */
-            }
-        </style>
-    
-        <div class="subtitle-block">
-            <h2 style="font-family: 'Special Elite', monospace; font-size: 2.0em; line-height: 1.2; font-weight: normal;">60 missões simples pra reacender a conexão em 30 dias.</h2>
-            <p style="font-family: 'Roboto Slab', serif; font-size: 1.0em; color: #555; margin-top: 20px;">Pequenos momentos que reconectam vocês todos os dias.</p>
-        </div>
-    
-    <div style="background-color: #F5F5DC; text-align: center; padding: 20px 20px 30px 20px;">
+    <p class="hero-line">
+      Um desafio de 30 dias com 60 missões simples para reacender a conexão do casal antes que a distância vire normal.
+    </p>
+  </section>
 
-    <style>
-        .cta-button-hero {
-            display: inline-block;
-            background-color: #B22222;
-            color: #FFFFFF;
-            font-family: 'Roboto Slab', serif;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-
-            opacity: 0;
-            animation:
-                fadeInButton 1s ease-in-out 0.5s forwards,
-                pulse 2.5s infinite 1.5s;
-        }
-
-        .cta-button-hero:hover {
-            transform: scale(1.05);
-            background-color: #c82828;
-        }
-
-        @keyframes fadeInButton {
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        .cta-microtext {
-            margin-top: 10px;
-            font-family: 'Roboto Slab', serif;
-            font-size: 0.85em;
-            color: #666;
-            opacity: 0;
-            animation: fadeInButton 1s ease-in-out 0.8s forwards;
-        }
-    </style>
-
+  <section class="cta-wrap">
     <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">
-        COMEÇAR HOJE!
+      COMEÇAR HOJE!
     </a>
 
     <p class="cta-microtext">
-        Acesso imediato • Compra 100% segura • Garantia de 7 dias
+      Acesso imediato • Compra 100% segura • Garantia de 7 dias
     </p>
+  </section>
 
-</div>
-
+</body>
     
     </div>
     
@@ -348,10 +261,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </div>
 
-<img class="solution-image" src="https://i.imgur.com/PjyvbLg.png" alt="Mockup do Diário de Missões" style="max-width: 100%; width: 700px; margin: 40px 0;">
+<img class="solution-image" src="https://i.imgur.com/PjyvbLg.png" alt="Mockup do Diário de Missões" style="max-width: 100%; width: 700px; margin: 10px 0;">
 
-        </div>
+
     </div>
+
+   <style>
+    .cta-button-hero {
+        display: inline-block;
+        background-color: #B22222;
+        color: #FFFFFF;
+        font-family: 'Roboto Slab', serif;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 15px 35px;
+        text-decoration: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+
+        opacity: 0;
+        animation:
+            fadeInButton 1s ease-in-out 0.5s forwards,
+            pulse 2.5s infinite 1.5s;
+    }
+
+    .cta-button-hero:hover {
+        transform: scale(1.05);
+        background-color: #c82828;
+    }
+
+    @keyframes fadeInButton {
+        to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+    }
+
+    .cta-microtext {
+        margin-top: 10px;
+        font-family: 'Roboto Slab', serif;
+        font-size: 0.85em;
+        color: #666;
+        opacity: 0;
+        animation: fadeInButton 1s ease-in-out 0.8s forwards;
+    }
+</style>
+
+<div style="text-align: center; margin: 40px 0;">
+
+    <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">
+        COMEÇAR HOJE!
+    </a>
+
+</div>
+
+
+</div>
     
     <div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);">
     </div>
