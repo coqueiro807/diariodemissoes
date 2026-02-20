@@ -554,7 +554,7 @@
     @keyframes faqTitleFadeIn{
       to{ opacity: 1; transform: translateY(0); }
     }
-</style>
+  </style>
 </head>
 
 <body>
@@ -659,14 +659,12 @@
   <!-- Transição -->
   <div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);"></div>
 
-  <!-- VALUE STACK + BONUS (mantido como você fez) -->
+  <!-- VALUE STACK + BONUS -->
   <section style="background-color:#FFFFFF; padding:15px 20px;">
     <div style="max-width:900px; margin:0 auto;">
       <h2 style="font-family:'Special Elite', monospace; font-size:1.8em; text-align:center; margin-bottom:20px;">
         Tudo o Que Vocês Precisam Para Se Reconectar Em 30 Dias
       </h2>
-
-      <!-- (mantive seu conteúdo dessa seção como está – cole o restante aqui se desejar) -->
 
       <div style="display:block; text-align:center; margin-top:25px;">
         <h3 style="font-family:'Roboto Slab', serif; font-size:1.5em; color:#B22222;">
@@ -694,7 +692,7 @@
     <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">COMEÇAR HOJE!</a>
   </section>
 
-  <!-- ===== AQUI ESTÁ A PRIMEIRA SEÇÃO COM PROBLEMA (CORRIGIDA) ===== -->
+  <!-- Seção: target -->
   <div style="height: 50px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);"></div>
 
   <section style="background-color:#F5F5DC; padding:15px 20px; text-align:center;">
@@ -762,7 +760,7 @@
   <!-- Transição -->
   <div style="height: 50px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);"></div>
 
-  <!-- ===== AQUI ESTÁ A SEGUNDA SEÇÃO COM PROBLEMA (CORRIGIDA) ===== -->
+  <!-- OFERTA -->
   <section id="oferta" style="padding:15px 20px; background-color:#F5F5DC;">
     <div class="offer-box">
       <h2 class="offer-title">Vocês Podem Começar Hoje</h2>
@@ -843,6 +841,80 @@
   </section>
 
   <script type="module" src="/index.tsx"></script>
+
+  <!-- ✅ BLOQUEIO/REMOÇÃO AUTOMÁTICA DA “CHUVA DE CORAÇÕES” NO CLIQUE -->
+  <script>
+    (function () {
+      const HEART_RE = /[❤💖💗💓💞💕💘💝]/;
+
+      function looksLikeHeartSpamText(txt) {
+        if (!txt) return false;
+        const t = txt.replace(/\s+/g, '');
+        if (!t) return false;
+        if (t.length > 600) return false;
+        return [...t].every(ch => HEART_RE.test(ch));
+      }
+
+      function removeIfHeartSpam(node) {
+        try {
+          if (!node) return;
+
+          if (node.nodeType === Node.TEXT_NODE) {
+            if (looksLikeHeartSpamText(node.textContent || '')) node.textContent = '';
+            return;
+          }
+
+          if (node.nodeType !== Node.ELEMENT_NODE) return;
+
+          const el = node;
+          const cls = (el.className || '').toString().toLowerCase();
+          const id = (el.id || '').toLowerCase();
+          const text = (el.textContent || '').trim();
+
+          // remove blocos inteiros que sejam só corações ou que venham com classe/id “heart/love”
+          if (looksLikeHeartSpamText(text)) {
+            el.remove();
+            return;
+          }
+
+          if ((cls.includes('heart') || cls.includes('love') || id.includes('heart') || id.includes('love')) && HEART_RE.test(text)) {
+            el.remove();
+            return;
+          }
+
+          // último pente fino: remove elementos pequenos com muitos emojis de coração
+          if (HEART_RE.test(text) && text.length < 300) {
+            const onlyHearts = text.replace(/[❤💖💗💓💞💕💘💝\s]/g, '');
+            if (!onlyHearts) {
+              el.remove();
+              return;
+            }
+          }
+        } catch (_) {}
+      }
+
+      // Observa qualquer coisa que algum script tente injetar no body
+      const obs = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          for (const n of m.addedNodes) removeIfHeartSpam(n);
+        }
+      });
+
+      if (document.body) {
+        obs.observe(document.body, { childList: true, subtree: true });
+      } else {
+        window.addEventListener('DOMContentLoaded', () => {
+          obs.observe(document.body, { childList: true, subtree: true });
+        });
+      }
+
+      // varredura extra ao clicar (pega quando vira “texto no final”)
+      document.addEventListener('click', () => {
+        const tail = Array.from(document.body.children).slice(-30);
+        tail.forEach(removeIfHeartSpam);
+      }, true);
+    })();
+  </script>
 
   <!-- Google Tag Manager (noscript) -->
   <noscript>
