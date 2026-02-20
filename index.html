@@ -34,6 +34,38 @@
       to{ opacity: 1; }
     }
 
+    /* ✅ PULSO LEVE */
+    @keyframes pulseSoft{
+      0%, 100% { transform: translateZ(0) scale(1); }
+      50% { transform: translateZ(0) scale(1.02); }
+    }
+
+    /* ✅ Pulso ainda mais sutil */
+    @keyframes pulseSofter{
+      0%, 100% { transform: translateZ(0) scale(1); }
+      50% { transform: translateZ(0) scale(1.015); }
+    }
+
+    /* ✅ Sentinel invisível (usado pra detectar scroll sem JS) */
+    #top-sentinel{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ✅ Quando o topo NÃO estiver mais em view = usuário rolou => PARA o pulso */
+    body:not(:has(#top-sentinel:in-view)) .cta-button-hero{
+      animation:
+        fadeIn 0.9s ease-in-out 0.35s forwards; /* mantém só o fadeIn */
+    }
+    body:not(:has(#top-sentinel:in-view)) #oferta .final-cta-button{
+      animation: none; /* para completamente o pulso do botão final */
+    }
+
     /* ===== HERO ===== */
     .hero{
       text-align: center;
@@ -80,14 +112,20 @@
       text-decoration: none;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
       opacity: 0;
-      animation: fadeIn 0.9s ease-in-out 0.35s forwards;
+
+      /* ✅ Primeiro aparece, depois pulsa (até o usuário rolar) */
+      animation:
+        fadeIn 0.9s ease-in-out 0.35s forwards,
+        pulseSoft 2.6s ease-in-out 1.6s infinite;
+      will-change: transform;
     }
 
     .cta-button-hero:hover{
       transform: scale(1.05);
       background-color: #c82828;
+      box-shadow: 0 7px 20px rgba(0,0,0,0.25);
     }
 
     .cta-microtext{
@@ -416,8 +454,7 @@
       margin: 6px 0 8px 0;
       opacity: 0;
       transform: scale(0.92);
-      animation: popPrice 0.55s ease-out forwards;
-      animation-delay: 0.25s;
+      animation: popPrice 0.55s ease-out 0.25s forwards;
     }
 
     @keyframes popPrice{ to{ opacity: 1; transform: scale(1); } }
@@ -440,12 +477,16 @@
       text-decoration: none;
       border-radius: 10px;
       box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-      transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease;
       margin-top: 6px;
+
+      /* ✅ Pulsa até o usuário rolar */
+      animation: pulseSofter 2.8s ease-in-out 0.9s infinite;
+      will-change: transform;
     }
 
     #oferta .final-cta-button:hover{
-      transform: translateY(-2px) scale(1.02);
+      transform: translateY(-2px) scale(1.03);
       box-shadow: 0 14px 34px rgba(0,0,0,0.22);
       background-color: #c82828;
     }
@@ -555,9 +596,13 @@
       to{ opacity: 1; transform: translateY(0); }
     }
   </style>
+
+  <link rel="stylesheet" href="/index.css">
 </head>
 
 <body>
+  <!-- ✅ Marcador invisível do topo (para detectar scroll) -->
+  <div id="top-sentinel" aria-hidden="true"></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -871,7 +916,6 @@
           const id = (el.id || '').toLowerCase();
           const text = (el.textContent || '').trim();
 
-          // remove blocos inteiros que sejam só corações ou que venham com classe/id “heart/love”
           if (looksLikeHeartSpamText(text)) {
             el.remove();
             return;
@@ -882,7 +926,6 @@
             return;
           }
 
-          // último pente fino: remove elementos pequenos com muitos emojis de coração
           if (HEART_RE.test(text) && text.length < 300) {
             const onlyHearts = text.replace(/[❤💖💗💓💞💕💘💝\s]/g, '');
             if (!onlyHearts) {
@@ -893,7 +936,6 @@
         } catch (_) {}
       }
 
-      // Observa qualquer coisa que algum script tente injetar no body
       const obs = new MutationObserver((mutations) => {
         for (const m of mutations) {
           for (const n of m.addedNodes) removeIfHeartSpam(n);
@@ -908,7 +950,6 @@
         });
       }
 
-      // varredura extra ao clicar (pega quando vira “texto no final”)
       document.addEventListener('click', () => {
         const tail = Array.from(document.body.children).slice(-30);
         tail.forEach(removeIfHeartSpam);
