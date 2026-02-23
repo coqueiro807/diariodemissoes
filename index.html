@@ -69,6 +69,7 @@
       padding: 18px 20px 34px 20px;
     }
 
+    /* ===== CTA (com pulsar leve + parar ao rolar) ===== */
     .cta-button-hero{
       display: inline-block;
       background-color: #B22222;
@@ -83,11 +84,27 @@
       transition: transform 0.3s ease, background-color 0.3s ease;
       opacity: 0;
       animation: fadeIn 0.9s ease-in-out 0.35s forwards;
+      will-change: transform;
     }
 
     .cta-button-hero:hover{
       transform: scale(1.05);
       background-color: #c82828;
+    }
+
+    /* pulsar leve (ativado via JS) */
+    @keyframes ctaPulse{
+      0%,100%{ transform: translateY(0) scale(1); }
+      50%{ transform: translateY(-1px) scale(1.025); }
+    }
+
+    .cta-pulsing{
+      animation: ctaPulse 1.9s ease-in-out infinite;
+    }
+
+    /* garante que hover continue agradável mesmo pulsando */
+    .cta-pulsing:hover{
+      animation-play-state: paused;
     }
 
     .cta-microtext{
@@ -430,6 +447,7 @@
       font-style: italic;
     }
 
+    /* ===== CTA principal da oferta (com pulsar leve + parar ao rolar) ===== */
     #oferta .final-cta-button{
       display: inline-block;
       background-color: #B22222;
@@ -443,12 +461,17 @@
       box-shadow: 0 10px 26px rgba(0,0,0,0.18);
       transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
       margin-top: 6px;
+      will-change: transform;
     }
 
     #oferta .final-cta-button:hover{
       transform: translateY(-2px) scale(1.02);
       box-shadow: 0 14px 34px rgba(0,0,0,0.22);
       background-color: #c82828;
+    }
+
+    #oferta .final-cta-button.cta-pulsing:hover{
+      animation-play-state: paused;
     }
 
     #oferta .offer-trust{
@@ -668,67 +691,67 @@
         Tudo o Que Vocês Precisam Para Se Reconectar Em 30 Dias
       </h2>
 
-<p style="
-  max-width: 760px;
-  margin: 10px auto 30px auto;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.0em;
-  line-height: 1.7;
-  color: #555;
-  text-align: center;
-  padding: 0 10px;
-">
-  Vocês recebem um kit completo com <strong style="color:#333;">60 cartas prontas</strong>,
-  <strong style="color:#333;">envelopes temáticos</strong> e um
-  <strong style="color:#333;">diário de bordo</strong> para transformar pequenos momentos
-  em grandes reconexões, mesmo com a rotina corrida.
-  <br><br>
-  É simples. É leve. E funciona porque foi pensado para a vida real.
-</p>
+      <p style="
+        max-width: 760px;
+        margin: 10px auto 30px auto;
+        font-family: 'Roboto Slab', serif;
+        font-size: 1.0em;
+        line-height: 1.7;
+        color: #555;
+        text-align: center;
+        padding: 0 10px;
+      ">
+        Vocês recebem um kit completo com <strong style="color:#333;">60 cartas prontas</strong>,
+        <strong style="color:#333;">envelopes temáticos</strong> e um
+        <strong style="color:#333;">diário de bordo</strong> para transformar pequenos momentos
+        em grandes reconexões, mesmo com a rotina corrida.
+        <br><br>
+        É simples. É leve. E funciona porque foi pensado para a vida real.
+      </p>
 
-<div class="value-row">
+      <!-- ===== VALUE ROW 1 (imagem entre título e parágrafo) ===== -->
+      <div class="value-row">
+        <div class="value-text">
+          <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.4em; text-align: center; color: #333;">
+            60 experiências pensadas para tirar vocês do automático.
+          </h3>
 
-  <div class="value-text">
+          <div style="margin: 18px 0;">
+            <img
+              src="https://i.imgur.com/OqxDc1J.png"
+              alt="Mockup do Jogo Diário de Missões"
+              style="box-shadow: none; border-radius: 0; width: 80%; max-width: 520px; display: block; margin: 0 auto;"
+            >
+          </div>
 
-    <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.4em; text-align: center; color: #333;">
-      60 experiências pensadas para tirar vocês do automático.
-    </h3>
+          <p style="color: #555; line-height: 1.6; font-size: 1.1em; text-align: center;">
+            Cada carta propõe uma missão simples e prática: pequenos gestos, conversas inesperadas e desafios leves que reacendem o carinho, o toque e a parceria no dia a dia.
+          </p>
+        </div>
+      </div>
 
-    <div style="margin: 18px 0;">
-      <img src="https://i.imgur.com/OqxDc1J.png"
-           alt="Mockup do Jogo Diário de Missões"
-           style="box-shadow: none; border-radius: 0; width: 80%; max-width: 520px; display: block; margin: 0 auto;">
-    </div>
+      <!-- ===== VALUE ROW 2 (imagem entre título e parágrafo) ===== -->
+      <div class="value-row">
+        <div class="value-text">
+          <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.6em; text-align: center; color: #333;">
+            Envelopes Temáticos + Diário de Bordo
+          </h3>
 
-    <p style="color: #555; line-height: 1.6; font-size: 1.1em; text-align: center;">
-      Cada carta propõe uma missão simples e prática: pequenos gestos, conversas inesperadas e desafios leves que reacendem o carinho, o toque e a parceria no dia a dia.
-    </p>
+          <div style="margin: 18px 0;">
+            <img
+              src="https://i.imgur.com/66QTAIV.png"
+              alt="Mockup do Jogo Diário de Missões"
+              style="box-shadow:none; border-radius:0; width:72%; max-width:300px; display:block; margin:0 auto;"
+            >
+          </div>
 
-</div>
-
-<div class="value-row">
-
-  <div class="value-text">
-
-    <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.6em; text-align: center; color: #333;">
-      Envelopes Temáticos + Diário de Bordo
-    </h3>
-
-    <div style="margin: 18px 0;">
-      <img
-        src="https://i.imgur.com/66QTAIV.png"
-        alt="Mockup do Jogo Diário de Missões"
-        style="box-shadow:none; border-radius:0; width:80%; max-width:320px; display:block; margin:0 auto;"
-      >
-    </div>
-
-    <p style="color: #555; line-height: 1.6; font-size: 1.1em; text-align: center;">
-      Não é só um jogo.<br>
-      É uma experiência guiada.<br>
-      Vocês escolhem a missão, registram o momento e constroem uma nova fase da história de vocês juntos.
-    </p>
-
-</div>
+          <p style="color: #555; line-height: 1.6; font-size: 1.1em; text-align: center;">
+            Não é só um jogo.<br>
+            É uma experiência guiada.<br>
+            Vocês escolhem a missão, registram o momento e constroem uma nova fase da história de vocês juntos.
+          </p>
+        </div>
+      </div>
 
       <div style="display:block; text-align:center; margin-top:25px;">
         <h3 style="font-family:'Roboto Slab', serif; font-size:1.5em; color:#B22222;">
@@ -777,7 +800,7 @@
       <div class="target-item">
         <div class="target-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"></path>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0,1 2-2h11a2 2 0 0,1 2 2z"></path>
           </svg>
         </div>
         <div><strong>O diálogo diminuiu</strong> e tudo virou automático.</div>
@@ -811,11 +834,11 @@
       <h3 style="font-family:'Special Elite', monospace; font-size:1.8em; margin-bottom:20px;">
         Casais reais que decidiram não deixar a rotina vencer.
       </h3>
-      
+
       <p style="font-size:0.9em; color:#555; max-width:700px; margin:0 auto;">
         Depoimentos reais de casais que decidiram não deixar a rotina vencer.
       </p>
-      </p>
+
       <p style="font-size:1.2em; color:#555; max-width:700px; margin:0 auto;">
         A conexão não voltou de uma vez… ela voltou nos pequenos detalhes.
       </p>
@@ -839,8 +862,8 @@
 
       <p class="offer-sub">
         Em 30 dias vocês podem sair do automático e voltar a se escolher. Mesmo com a rotina e com pouco tempo.
-        </p>
-        <p class="offer-sub" style="margin-top: 8px">
+      </p>
+      <p class="offer-sub" style="margin-top: 8px">
         Você recebe:
       </p>
 
@@ -880,7 +903,7 @@
   <!-- Transição -->
   <div style="height: 26px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);"></div>
 
-  <!-- FAQ -->
+  <!-- FAQ (mantido) -->
   <section style="background-color:#FFFFFF; padding:15px 20px;">
     <div class="faq-container">
       <h2 class="faq-title-animated" style="font-family:'Special Elite', monospace; font-size:2.5em; text-align:center; margin-bottom:50px;">
@@ -914,6 +937,32 @@
     </div>
   </section>
 
+  <!-- ===== SCRIPT: pulsar leve e parar quando o usuário rolar ===== -->
+  <script>
+    (function () {
+      const selectors = ['.cta-button-hero', '#oferta .final-cta-button'];
+      const buttons = selectors.flatMap(sel => Array.from(document.querySelectorAll(sel)));
+
+      // começa pulsando depois que a página carrega (suave)
+      function startPulse() {
+        buttons.forEach(btn => btn.classList.add('cta-pulsing'));
+      }
+
+      // para pulsar quando o usuário rolar (e não volta)
+      function stopPulseForever() {
+        buttons.forEach(btn => btn.classList.remove('cta-pulsing'));
+        window.removeEventListener('scroll', stopPulseForever, { passive: true });
+      }
+
+      window.addEventListener('load', () => {
+        // pequeno delay para não “brigar” com o fadeIn inicial
+        setTimeout(startPulse, 900);
+      });
+
+      window.addEventListener('scroll', stopPulseForever, { passive: true });
+    })();
+  </script>
+
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFMX9LPF"
@@ -921,3 +970,4 @@
   </noscript>
 </body>
 </html>
+```0
