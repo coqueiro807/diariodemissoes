@@ -34,6 +34,23 @@
       to{ opacity: 1; }
     }
 
+    /* ====== CTA (efeito consistente em TODOS os botões) ====== */
+    @keyframes ctaPulseSoft{
+      0%,100%{ transform: translateY(0) scale(1); box-shadow: 0 10px 26px rgba(0,0,0,0.18); }
+      50%{ transform: translateY(-1px) scale(1.015); box-shadow: 0 14px 34px rgba(0,0,0,0.22); }
+    }
+
+    /* Quando tiver a classe .cta-pulse, o botão "respira" suavemente */
+    .cta-pulse{
+      animation: ctaPulseSoft 1.8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    /* Respeita quem prefere reduzir animações */
+    @media (prefers-reduced-motion: reduce){
+      .cta-pulse{ animation: none !important; }
+    }
+
     /* ===== HERO ===== */
     .hero{
       text-align: center;
@@ -69,7 +86,6 @@
       padding: 18px 20px 34px 20px;
     }
 
-    /* ===== CTA (com pulsar leve + parar ao rolar) ===== */
     .cta-button-hero{
       display: inline-block;
       background-color: #B22222;
@@ -84,27 +100,11 @@
       transition: transform 0.3s ease, background-color 0.3s ease;
       opacity: 0;
       animation: fadeIn 0.9s ease-in-out 0.35s forwards;
-      will-change: transform;
     }
 
     .cta-button-hero:hover{
       transform: scale(1.05);
       background-color: #c82828;
-    }
-
-    /* pulsar leve (ativado via JS) */
-    @keyframes ctaPulse{
-      0%,100%{ transform: translateY(0) scale(1); }
-      50%{ transform: translateY(-1px) scale(1.025); }
-    }
-
-    .cta-pulsing{
-      animation: ctaPulse 1.9s ease-in-out infinite;
-    }
-
-    /* garante que hover continue agradável mesmo pulsando */
-    .cta-pulsing:hover{
-      animation-play-state: paused;
     }
 
     .cta-microtext{
@@ -317,7 +317,6 @@
       animation: bounceInFade 1s ease-out forwards;
     }
 
-    /* h2 é o 1º filho; os itens começam no 2º */
     .target-item:nth-of-type(1){ animation-delay: 0.2s; }
     .target-item:nth-of-type(2){ animation-delay: 0.3s; }
     .target-item:nth-of-type(3){ animation-delay: 0.4s; }
@@ -344,9 +343,7 @@
       animation-delay: 0.1s;
     }
 
-    @keyframes zoomInFade{
-      to{ opacity: 1; transform: scale(1); }
-    }
+    @keyframes zoomInFade{ to{ opacity: 1; transform: scale(1); } }
 
     .final-paragraph-animated{
       opacity: 0;
@@ -447,7 +444,6 @@
       font-style: italic;
     }
 
-    /* ===== CTA principal da oferta (com pulsar leve + parar ao rolar) ===== */
     #oferta .final-cta-button{
       display: inline-block;
       background-color: #B22222;
@@ -461,17 +457,12 @@
       box-shadow: 0 10px 26px rgba(0,0,0,0.18);
       transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
       margin-top: 6px;
-      will-change: transform;
     }
 
     #oferta .final-cta-button:hover{
       transform: translateY(-2px) scale(1.02);
       box-shadow: 0 14px 34px rgba(0,0,0,0.22);
       background-color: #c82828;
-    }
-
-    #oferta .final-cta-button.cta-pulsing:hover{
-      animation-play-state: paused;
     }
 
     #oferta .offer-trust{
@@ -575,9 +566,7 @@
       animation: faqTitleFadeIn 1s ease-out forwards;
     }
 
-    @keyframes faqTitleFadeIn{
-      to{ opacity: 1; transform: translateY(0); }
-    }
+    @keyframes faqTitleFadeIn{ to{ opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 
@@ -590,7 +579,8 @@
   </section>
 
   <section class="cta-wrap">
-    <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">COMEÇAR HOJE!</a>
+    <!-- botão com efeito (igual ao da oferta) -->
+    <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero cta-pulse">COMEÇAR HOJE!</a>
     <p class="cta-microtext">Acesso imediato • Arquivo em PDF para imprimir • Garantia de 7 dias</p>
   </section>
 
@@ -677,7 +667,8 @@
     </div>
 
     <div style="text-align:center; margin:40px 0;">
-      <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">COMEÇAR HOJE!</a>
+      <!-- botão com efeito (igual ao da oferta) -->
+      <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero cta-pulse">COMEÇAR HOJE!</a>
     </div>
   </section>
 
@@ -709,7 +700,6 @@
         É simples. É leve. E funciona porque foi pensado para a vida real.
       </p>
 
-      <!-- ===== VALUE ROW 1 (imagem entre título e parágrafo) ===== -->
       <div class="value-row">
         <div class="value-text">
           <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.4em; text-align: center; color: #333;">
@@ -730,7 +720,6 @@
         </div>
       </div>
 
-      <!-- ===== VALUE ROW 2 (imagem entre título e parágrafo) ===== -->
       <div class="value-row">
         <div class="value-text">
           <h3 style="font-family: 'Roboto Slab', serif; font-size: 1.6em; text-align: center; color: #333;">
@@ -776,7 +765,8 @@
 
   <!-- CTA intermediário -->
   <section style="background-color:#FFFFFF; text-align:center; padding:20px 20px 30px 20px;">
-    <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero">COMEÇAR HOJE!</a>
+    <!-- botão com efeito (igual ao da oferta) -->
+    <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="cta-button-hero cta-pulse">COMEÇAR HOJE!</a>
   </section>
 
   <!-- Seção: O Diário de Missões é para casais que -->
@@ -800,7 +790,7 @@
       <div class="target-item">
         <div class="target-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0,1 2-2h11a2 2 0 0,1 2 2z"></path>
+            <path d="M21 15a2 2 0 0,1-2 2H7l-4 4V5a2 2 0 0,1 2-2h11a2 2 0 0,1 2 2z"></path>
           </svg>
         </div>
         <div><strong>O diálogo diminuiu</strong> e tudo virou automático.</div>
@@ -880,7 +870,8 @@
 
       <p class="offer-note">(Valor promocional disponível por tempo limitado)</p>
 
-      <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="final-cta-button">
+      <!-- botão principal da oferta com efeito (e os demais estão iguais a ele) -->
+      <a href="https://pay.hotmart.com/F100778435S?off=lbntt1ld" class="final-cta-button cta-pulse">
         COMEÇAR HOJE!
       </a>
 
@@ -937,29 +928,34 @@
     </div>
   </section>
 
-  <!-- ===== SCRIPT: pulsar leve e parar quando o usuário rolar ===== -->
+  <!-- ✅ Para a animação quando o usuário rolar (scroll) -->
   <script>
     (function () {
-      const selectors = ['.cta-button-hero', '#oferta .final-cta-button'];
-      const buttons = selectors.flatMap(sel => Array.from(document.querySelectorAll(sel)));
+      let stopped = false;
 
-      // começa pulsando depois que a página carrega (suave)
-      function startPulse() {
-        buttons.forEach(btn => btn.classList.add('cta-pulsing'));
+      function stopPulse() {
+        if (stopped) return;
+        stopped = true;
+        document.querySelectorAll('.cta-pulse').forEach((el) => el.classList.remove('cta-pulse'));
+
+        window.removeEventListener('scroll', onScroll, { passive: true });
+        window.removeEventListener('wheel', onScroll, { passive: true });
+        window.removeEventListener('touchmove', onScroll, { passive: true });
+        window.removeEventListener('keydown', onKey);
       }
 
-      // para pulsar quando o usuário rolar (e não volta)
-      function stopPulseForever() {
-        buttons.forEach(btn => btn.classList.remove('cta-pulsing'));
-        window.removeEventListener('scroll', stopPulseForever, { passive: true });
+      function onScroll() { stopPulse(); }
+
+      function onKey(e) {
+        // seta, page down/up, space
+        const keys = ['ArrowDown','ArrowUp','PageDown','PageUp',' ','Spacebar'];
+        if (keys.includes(e.key)) stopPulse();
       }
 
-      window.addEventListener('load', () => {
-        // pequeno delay para não “brigar” com o fadeIn inicial
-        setTimeout(startPulse, 900);
-      });
-
-      window.addEventListener('scroll', stopPulseForever, { passive: true });
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('wheel', onScroll, { passive: true });
+      window.addEventListener('touchmove', onScroll, { passive: true });
+      window.addEventListener('keydown', onKey);
     })();
   </script>
 
@@ -968,6 +964,6 @@
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFMX9LPF"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
+
 </body>
 </html>
-```0
