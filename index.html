@@ -142,9 +142,25 @@
       animation: fadeIn 0.9s ease-in-out 0.6s forwards;
     }
 
+    /* ===== Foto hero ===== */
+    .hero-image-wrap{
+      margin: 28px auto 0 auto;
+      max-width: 620px;
+      padding: 0 20px;
+    }
+
+    .hero-image{
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.13);
+      display: block;
+    }
+
     @media (max-width: 480px){
       .hero-title{ font-size: 1.75em; }
       .hero-line{ margin-top: 20px; font-size: 0.98em; }
+      .hero-image-wrap{ padding: 0 12px; }
     }
 
     /* ===== Problema ===== */
@@ -728,7 +744,7 @@
   <!-- HERO -->
   <section class="hero">
     <!-- ✅ ALTERADO: headline mais específica e que causa identificação imediata -->
-    <h1 class="hero-title">O casal que não briga mas também não conversa de verdade.</h1>
+    <h1 class="hero-title">O casal que não briga — mas também não conversa de verdade.</h1>
     <!-- ✅ ALTERADO: subheadline deixa claro o que é o produto, o mecanismo e quebra objeções -->
     <p class="hero-line">O Diário de Missões reconecta casais em 30 dias — com 2 missões simples por dia, mesmo com a rotina corrida. Sem precisar de terapia ou conversa difícil.</p>
   </section>
@@ -746,6 +762,16 @@
     </div>
 
     <p class="cta-microtext">Arquivo em PDF para imprimir • Compra 100% segura</p>
+
+    <!-- ✅ FOTO HERO: substitua o src abaixo pelo caminho da sua imagem -->
+    <div class="hero-image-wrap">
+      <img
+        src="COLOQUE_AQUI_O_CAMINHO_DA_SUA_FOTO.jpg"
+        alt="Diário de Missões impresso"
+        class="hero-image"
+      >
+    </div>
+
   </section>
 
   <!-- Transição -->
