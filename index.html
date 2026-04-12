@@ -171,7 +171,7 @@
       text-align: center;
     }
 
-    Ana C.{
+    .problem-rhetorical{
       font-family: 'Roboto Slab', serif;
       font-size: 1.1em;
       color: #B22222;
@@ -1176,7 +1176,7 @@
 
       if (!deadline || deadline < Date.now()) {
         /* 23h 47min a partir de agora */
-        deadline = Date.now() + ((23 * 3600) + (47 * 60)) * 1000;
+        deadline = Date.now() + (3 * 3600) * 1000;
         sessionStorage.setItem(KEY, deadline);
       }
 
