@@ -17,17 +17,17 @@
   <meta name="description" content="60 misiones para imprimir que sacan a tu pareja del piloto automático en 30 días. Sin terapia, sin conversaciones difíciles. Acceso inmediato en PDF." />
   <link rel="canonical" href="https://solonosotrosdos.com/" />
 
-  <!-- Open Graph / compartilhamento -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CO" />
   <meta property="og:site_name" content="Solo Nosotros Dos" />
   <meta property="og:title" content="Diario de Misiones — Una Aventura de Dos" />
   <meta property="og:description" content="60 misiones para imprimir que reconectan a la pareja en 30 días. Unos minuticos al día." />
-  <!-- TODO: subir esta imagen a solonosotrosdos.com (1200x630px) -->
+  <!-- TODO: subir esta imagen a /public/img/ (1200x630px) -->
   <meta property="og:image" content="https://solonosotrosdos.com/img/og-diario-de-misiones.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fontes: preconnect + link (substitui o @import bloqueante) -->
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700&family=Special+Elite&display=swap">
@@ -35,12 +35,10 @@
   <style>
     /* ============================================================
        TOKENS
-       Trocar preço/cor num lugar só.
        ============================================================ */
     :root{
       color-scheme: light only;
 
-      /* Papel e tinta */
       --paper:      #F7F1E4;
       --paper-2:    #FFFDF8;
       --ink:        #2B2620;
@@ -48,20 +46,16 @@
       --ink-3:      #8A7F72;
       --line:       rgba(43, 38, 32, 0.14);
 
-      /* Acentos — vermelho SÓ para CTA e preço. Ouro para o resto. */
       --red:        #9E2B25;
       --red-2:      #7E211C;
-      --red-tint:   rgba(158, 43, 37, 0.08);
       --gold:       #C08A3E;
       --gold-tint:  rgba(192, 138, 62, 0.12);
 
-      /* Ritmo vertical */
       --s1: 8px;
       --s2: 16px;
       --s3: 24px;
       --s4: 40px;
       --s5: 64px;
-      --s6: 96px;
 
       --section-y: clamp(48px, 9vw, 88px);
       --gutter:    clamp(18px, 5vw, 28px);
@@ -71,7 +65,6 @@
       --radius:    14px;
       --radius-lg: 20px;
 
-      /* Escala tipográfica */
       --t-h1:    clamp(2rem, 6.2vw, 2.9rem);
       --t-h2:    clamp(1.55rem, 4.6vw, 2.15rem);
       --t-h3:    clamp(1.1rem, 3vw, 1.3rem);
@@ -85,18 +78,26 @@
        ============================================================ */
     *, *::before, *::after{ box-sizing: border-box; }
 
-    html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    /* CORREÇÃO 1 — trava o scroll lateral na raiz, não só no body */
+    html{
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
 
     body{
       margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
       background-color: var(--paper);
       font-family: 'Roboto Slab', Georgia, serif;
       font-weight: 300;
       font-size: var(--t-body);
       line-height: 1.68;
       color: var(--ink);
-      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      overflow-wrap: break-word;
     }
 
     h1, h2, h3, h4{
@@ -113,7 +114,8 @@
     strong{ font-weight: 700; color: var(--ink); }
 
     a:focus-visible,
-    button:focus-visible{
+    button:focus-visible,
+    summary:focus-visible{
       outline: 3px solid var(--gold);
       outline-offset: 3px;
       border-radius: 4px;
@@ -127,7 +129,6 @@
     .section--card{  background-color: var(--paper-2); }
 
     .wrap{ max-width: var(--maxw); margin: 0 auto; }
-    .wrap--narrow{ max-width: var(--measure); margin: 0 auto; }
     .center{ text-align: center; }
 
     .eyebrow{
@@ -156,8 +157,7 @@
       margin-right: auto;
     }
 
-    /* SIGNATURE — linha picotada de recorte.
-       O produto é impresso e recortado, então o divisor conta algo verdadeiro. */
+    /* SIGNATURE — linha picotada de recorte */
     .perf{
       position: relative;
       height: 1px;
@@ -238,13 +238,12 @@
        HERO
        ============================================================ */
     .hero{ padding-top: clamp(40px, 8vw, 68px); }
-
     .hero-title{ margin-bottom: var(--s3); }
-
     .hero-lede{ margin-bottom: var(--s4); }
 
     .hero-figure{
-      max-width: 620px;
+      width: 100%;
+      max-width: 560px;
       margin: 0 auto var(--s4) auto;
     }
 
@@ -267,13 +266,13 @@
        ============================================================ */
     .problem-grid{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: var(--s4) var(--s3);
       max-width: 940px;
       margin: var(--s5) auto 0 auto;
     }
 
-    .problem-item{ text-align: center; }
+    .problem-item{ text-align: center; min-width: 0; }
 
     .problem-item h3{
       font-size: var(--t-h3);
@@ -281,10 +280,7 @@
       margin: var(--s2) 0 var(--s1) 0;
     }
 
-    .problem-item p{
-      color: var(--ink-2);
-      font-size: 0.98rem;
-    }
+    .problem-item p{ color: var(--ink-2); font-size: 0.98rem; }
 
     .icon-badge{
       width: 60px;
@@ -323,9 +319,9 @@
       background-color: var(--paper-2);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: var(--s3) var(--s3);
+      padding: var(--s3);
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto minmax(0, 1fr);
       gap: var(--s2) 18px;
       align-items: start;
       text-align: left;
@@ -343,13 +339,10 @@
       align-items: center;
       justify-content: center;
       grid-row: span 2;
+      flex-shrink: 0;
     }
 
-    .step h3{
-      font-size: 1.02rem;
-      font-weight: 700;
-      align-self: center;
-    }
+    .step h3{ font-size: 1.02rem; font-weight: 700; align-self: center; }
 
     .step p{
       grid-column: 2;
@@ -375,9 +368,19 @@
       margin-bottom: var(--s3);
     }
 
-    .include-block img{ margin: 0 auto var(--s3) auto; }
-
     .include-block p{ color: var(--ink-2); }
+
+    /* CORREÇÃO 2 — tamanhos das imagens agora em classes, não em style inline.
+       Style inline vencia o img{max-width:100%} e estourava a tela no celular. */
+    .fig{
+      width: 100%;
+      margin: 0 auto var(--s3) auto;
+    }
+
+    .fig img{ width: 100%; }
+
+    .fig--cards{ max-width: 340px; }
+    .fig--sobres{ max-width: 280px; }
 
     .bonus{
       list-style: none;
@@ -405,15 +408,14 @@
     }
 
     .bonus strong{ display: block; margin-bottom: 2px; }
-
     .bonus span{ display: block; color: var(--ink-2); font-size: 0.96rem; }
 
     /* ============================================================
-       CATEGORÍAS (substitui os depoimentos falsos)
+       CATEGORÍAS
        ============================================================ */
     .cats{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: var(--s2);
       max-width: 900px;
       margin: var(--s4) auto 0 auto;
@@ -425,6 +427,7 @@
       border-radius: var(--radius);
       padding: var(--s3) var(--s2);
       text-align: center;
+      min-width: 0;
     }
 
     .cat-count{
@@ -435,17 +438,8 @@
       margin-bottom: var(--s1);
     }
 
-    .cat h3{
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .cat p{
-      font-size: 0.92rem;
-      color: var(--ink-2);
-      margin: 0;
-    }
+    .cat h3{ font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .cat p{ font-size: 0.92rem; color: var(--ink-2); margin: 0; }
 
     /* ============================================================
        PARA QUIÉN
@@ -455,17 +449,17 @@
       margin: var(--s4) auto 0 auto;
       display: grid;
       gap: var(--s3);
+      text-align: left;
     }
 
     .fit{
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto minmax(0, 1fr);
       gap: 18px;
       align-items: start;
-      text-align: left;
     }
 
-    .fit svg{ width: 26px; height: 26px; margin-top: 4px; }
+    .fit svg{ width: 26px; height: 26px; margin-top: 4px; flex-shrink: 0; }
 
     /* ============================================================
        OFERTA
@@ -507,20 +501,14 @@
       font-weight: 700;
     }
 
-    .price-anchor{
-      color: var(--ink-2);
-      font-size: 1rem;
-      margin-bottom: 2px;
-    }
-
+    .price-anchor{ color: var(--ink-2); font-size: 1rem; margin-bottom: 2px; }
     .price-anchor del{ text-decoration-thickness: 1.5px; }
-
     .price-label{ color: var(--ink-2); font-size: 0.95rem; margin-bottom: 4px; }
 
     .price{
       font-family: 'Roboto Slab', serif;
       font-weight: 700;
-      font-size: clamp(2.6rem, 9vw, 3.4rem);
+      font-size: clamp(2.4rem, 8.5vw, 3.4rem);
       color: var(--red);
       line-height: 1;
       margin-bottom: var(--s1);
@@ -571,11 +559,7 @@
 
     .guarantee-seal svg{ width: 28px; height: 28px; }
 
-    .guarantee h3{
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: var(--s2);
-    }
+    .guarantee h3{ font-size: 1.1rem; font-weight: 700; margin-bottom: var(--s2); }
 
     .guarantee p{
       max-width: 560px;
@@ -587,7 +571,12 @@
     /* ============================================================
        FAQ
        ============================================================ */
-    .faq{ max-width: var(--measure); margin: var(--s4) auto 0 auto; }
+    /* CORREÇÃO 3 — o FAQ herdava text-align:center da .wrap.center */
+    .faq{
+      max-width: var(--measure);
+      margin: var(--s4) auto 0 auto;
+      text-align: left;
+    }
 
     .faq details{
       border-bottom: 1px solid var(--line);
@@ -605,6 +594,7 @@
       justify-content: space-between;
       align-items: center;
       gap: var(--s2);
+      text-align: left;
     }
 
     .faq summary::-webkit-details-marker{ display: none; }
@@ -625,6 +615,7 @@
       margin: var(--s2) 0 0 0;
       color: var(--ink-2);
       font-size: 0.98rem;
+      text-align: left;
     }
 
     /* ============================================================
@@ -633,7 +624,7 @@
     .footer{
       background-color: var(--ink);
       color: rgba(247, 241, 228, 0.72);
-      padding: var(--s5) var(--gutter) calc(var(--s5) + 70px) var(--gutter);
+      padding: var(--s5) var(--gutter) calc(var(--s5) + 80px) var(--gutter);
       font-size: var(--t-small);
       line-height: 1.65;
       text-align: center;
@@ -672,39 +663,53 @@
     /* ============================================================
        CTA FIXO (mobile)
        ============================================================ */
+    /* CORREÇÃO 4 — barra mais discreta, conteúdo centralizado e limitado */
     .sticky-cta{
       position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
+      width: 100%;
       z-index: 90;
       background-color: rgba(247, 241, 228, 0.97);
       border-top: 1px solid var(--line);
-      padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
-      transform: translateY(110%);
+      padding: 9px var(--gutter) calc(9px + env(safe-area-inset-bottom, 0px));
+      transform: translateY(115%);
       transition: transform .28s ease;
+      -webkit-backdrop-filter: blur(6px);
       backdrop-filter: blur(6px);
     }
 
     .sticky-cta.is-visible{ transform: translateY(0); }
 
+    .sticky-inner{
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
     .sticky-cta a{
       display: block;
+      width: 100%;
       background-color: var(--red);
       color: #fff;
       text-align: center;
       text-decoration: none;
       font-weight: 700;
-      padding: 15px 12px;
-      border-radius: 10px;
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
+      padding: 13px 10px;
+      border-radius: 9px;
+      box-shadow: 0 4px 14px rgba(126, 33, 28, 0.2);
     }
 
     .sticky-cta span{
       display: block;
       text-align: center;
-      font-size: var(--t-micro);
+      font-size: 0.72rem;
       color: var(--ink-2);
-      margin-top: 6px;
+      margin-top: 5px;
+      line-height: 1.3;
     }
 
     @media (min-width: 720px){
@@ -751,7 +756,6 @@
         incluso con la rutina más ocupada. Sin terapia y sin conversaciones difíciles.
       </p>
 
-      <!-- TODO: reemplazar por imagen propia en solonosotrosdos.com/img/ y añadir width/height reales -->
       <div class="hero-figure">
         <img src="/img/uaWJy4u.png"
              alt="Cartas y sobres impresos del Diario de Misiones sobre una mesa"
@@ -886,19 +890,21 @@
 
       <div class="include-block reveal">
         <h3>60 experiencias para sacarlos del automático</h3>
-        <!-- TODO: self-host -->
-        <img src="/img/799rXMW.png"
-             alt="Las 60 cartas de misión del Diario de Misiones"
-             loading="lazy" decoding="async" style="max-width: 480px;">
+        <div class="fig fig--cards">
+          <img src="/img/799rXMW.png"
+               alt="Las 60 cartas de misión del Diario de Misiones"
+               loading="lazy" decoding="async">
+        </div>
         <p>Cada carta propone una misión sencilla y práctica: pequeños gestos, conversaciones inesperadas y retos ligeros que despiertan el cariño, el contacto y la complicidad del día a día.</p>
       </div>
 
       <div class="include-block reveal">
         <h3>Sobres temáticos + diario de experiencias</h3>
-        <!-- TODO: self-host -->
-        <img src="/img/652fKCp.png"
-             alt="Sobres temáticos y diario de experiencias para registrar cada misión"
-             loading="lazy" decoding="async" style="max-width: 300px;">
+        <div class="fig fig--sobres">
+          <img src="/img/652fKCp.png"
+               alt="Sobres temáticos y diario de experiencias para registrar cada misión"
+               loading="lazy" decoding="async">
+        </div>
         <p>No es solo un juego: es una experiencia guiada para los dos. Eligen la misión, registran el momento y construyen juntos una nueva etapa de su historia.</p>
       </div>
 
@@ -922,8 +928,7 @@
 
   <!-- ============================================================
        CATEGORÍAS DE MISIONES
-       Sustituye los testimonios inventados por prueba de mecanismo.
-       AJUSTAR los nombres/cantidades al contenido real del PDF.
+       AJUSTAR nombres/cantidades al contenido real del PDF.
        ============================================================ -->
   <section class="section section--paper center">
     <div class="wrap">
@@ -958,11 +963,7 @@
         </div>
       </div>
 
-      <!-- ============================================================
-           ESPACIO PARA TESTIMONIOS REALES
-           Recoger durante los primeros 30 días (email post-compra a los 7 días)
-           y activar esta sección. No publicar nada inventado.
-           ============================================================ -->
+      <!-- ESPACIO PARA TESTIMONIOS REALES — recoger en los primeros 30 días -->
     </div>
   </section>
 
@@ -1163,9 +1164,11 @@
        CTA FIJO MÓVIL
        ============================================================ -->
   <div class="sticky-cta" id="stickyCta">
-    <a href="https://pay.hotmart.com/R105503656J?off=ej06f4e9"
-       data-checkout data-cta="sticky">EMPEZAR HOY — $59.900 COP</a>
-    <span>Acceso inmediato · Garantía de 30 días</span>
+    <div class="sticky-inner">
+      <a href="https://pay.hotmart.com/R105503656J?off=ej06f4e9"
+         data-checkout data-cta="sticky">EMPEZAR HOY · $59.900</a>
+      <span>Acceso inmediato · Garantía de 30 días</span>
+    </div>
   </div>
 
   <!-- ============================================================
@@ -1175,9 +1178,7 @@
   (function () {
     'use strict';
 
-    /* ---------- 1. UTMs + sck en los enlaces de checkout ----------
-       Meta manda los parámetros en la URL de la landing.
-       Esto los reenvía a Hotmart para poder atribuir la venta al creativo. */
+    /* ---------- 1. UTMs + sck en los enlaces de checkout ---------- */
     function tagCheckoutLinks() {
       var qs = new URLSearchParams(window.location.search);
       var carry = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
@@ -1234,7 +1235,7 @@
       });
     }
 
-    /* ---------- 3. Scroll depth (útil para diagnosticar la landing) ---------- */
+    /* ---------- 3. Scroll depth ---------- */
     function bindScrollDepth() {
       var marks = [25, 50, 75, 90];
       var fired = {};
@@ -1256,8 +1257,8 @@
 
     /* ---------- 4. CTA fijo móvil ---------- */
     function bindStickyCta() {
-      var bar  = document.getElementById('stickyCta');
-      var hero = document.querySelector('.hero');
+      var bar   = document.getElementById('stickyCta');
+      var hero  = document.querySelector('.hero');
       var offer = document.getElementById('oferta');
       if (!bar || !hero) return;
 
@@ -1296,7 +1297,6 @@
       els.forEach(function (el) { io.observe(el); });
     }
 
-    /* ---------- init ---------- */
     tagCheckoutLinks();
     bindCheckoutEvents();
     bindScrollDepth();
