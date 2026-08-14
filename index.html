@@ -1,1211 +1,1312 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es-CO">
 <head>
+
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KFMX9LPF');</script>
+  })(window,document,'script','dataLayer','GTM-W97L2JBM');</script>
+  <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diário de Missões</title>
+
+  <title>Diario de Misiones — Reconecta tu relación en 30 días</title>
+  <meta name="description" content="60 misiones para imprimir que sacan a tu pareja del piloto automático en 30 días. Sin terapia, sin conversaciones difíciles. Acceso inmediato en PDF." />
+  <link rel="canonical" href="https://solonosotrosdos.com/" />
+
+  <!-- Open Graph / compartilhamento -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="Solo Nosotros Dos" />
+  <meta property="og:title" content="Diario de Misiones — Una Aventura de Dos" />
+  <meta property="og:description" content="60 misiones para imprimir que reconectan a la pareja en 30 días. Unos minuticos al día." />
+  <!-- TODO: subir esta imagen a solonosotrosdos.com (1200x630px) -->
+  <meta property="og:image" content="https://solonosotrosdos.com/img/og-diario-de-misiones.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fontes: preconnect + link (substitui o @import bloqueante) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700&family=Special+Elite&display=swap">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Special+Elite&display=swap');
+    /* ============================================================
+       TOKENS
+       Trocar preço/cor num lugar só.
+       ============================================================ */
+    :root{
+      color-scheme: light only;
 
-    html, body{
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
+      /* Papel e tinta */
+      --paper:      #F7F1E4;
+      --paper-2:    #FFFDF8;
+      --ink:        #2B2620;
+      --ink-2:      #6B6156;
+      --ink-3:      #8A7F72;
+      --line:       rgba(43, 38, 32, 0.14);
+
+      /* Acentos — vermelho SÓ para CTA e preço. Ouro para o resto. */
+      --red:        #9E2B25;
+      --red-2:      #7E211C;
+      --red-tint:   rgba(158, 43, 37, 0.08);
+      --gold:       #C08A3E;
+      --gold-tint:  rgba(192, 138, 62, 0.12);
+
+      /* Ritmo vertical */
+      --s1: 8px;
+      --s2: 16px;
+      --s3: 24px;
+      --s4: 40px;
+      --s5: 64px;
+      --s6: 96px;
+
+      --section-y: clamp(48px, 9vw, 88px);
+      --gutter:    clamp(18px, 5vw, 28px);
+      --maxw:      1040px;
+      --measure:   680px;
+
+      --radius:    14px;
+      --radius-lg: 20px;
+
+      /* Escala tipográfica */
+      --t-h1:    clamp(2rem, 6.2vw, 2.9rem);
+      --t-h2:    clamp(1.55rem, 4.6vw, 2.15rem);
+      --t-h3:    clamp(1.1rem, 3vw, 1.3rem);
+      --t-body:  clamp(1rem, 2.4vw, 1.06rem);
+      --t-small: 0.9rem;
+      --t-micro: 0.8rem;
     }
+
+    /* ============================================================
+       BASE
+       ============================================================ */
+    *, *::before, *::after{ box-sizing: border-box; }
+
+    html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     body{
-      background-color: #F5F5DC;
-      font-family: 'Roboto Slab', serif;
-      color: #333;
+      margin: 0;
+      background-color: var(--paper);
+      font-family: 'Roboto Slab', Georgia, serif;
+      font-weight: 300;
+      font-size: var(--t-body);
+      line-height: 1.68;
+      color: var(--ink);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    :root{ color-scheme: light only; }
-
-    @keyframes fadeIn{
-      from{ opacity: 0; }
-      to{ opacity: 1; }
+    h1, h2, h3, h4{
+      margin: 0;
+      line-height: 1.18;
+      text-wrap: balance;
     }
 
-    /* ====== CTA ====== */
-    @keyframes ctaPulseSoft{
-      0%,100%{ transform: translateY(0) scale(1); box-shadow: 0 10px 26px rgba(0,0,0,0.18); }
-      50%{ transform: translateY(-1px) scale(1.015); box-shadow: 0 14px 34px rgba(0,0,0,0.22); }
+    p{ margin: 0 0 var(--s2) 0; }
+    p:last-child{ margin-bottom: 0; }
+
+    img{ max-width: 100%; height: auto; display: block; }
+
+    strong{ font-weight: 700; color: var(--ink); }
+
+    a:focus-visible,
+    button:focus-visible{
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
     }
 
-    .cta-pulse{
-      animation: ctaPulseSoft 1.8s ease-in-out infinite;
-      will-change: transform;
-    }
+    /* ============================================================
+       ESTRUTURA
+       ============================================================ */
+    .section{ padding: var(--section-y) var(--gutter); }
+    .section--paper{ background-color: var(--paper); }
+    .section--card{  background-color: var(--paper-2); }
 
-    @media (prefers-reduced-motion: reduce){
-      .cta-pulse{ animation: none !important; }
-    }
+    .wrap{ max-width: var(--maxw); margin: 0 auto; }
+    .wrap--narrow{ max-width: var(--measure); margin: 0 auto; }
+    .center{ text-align: center; }
 
-    /* ===== HERO ===== */
-    .hero{
-      text-align: center;
-      background-color: #F5F5DC;
-      padding: 64px 20px 18px 20px;
-    }
-
-    .hero-title{
+    .eyebrow{
       font-family: 'Special Elite', monospace;
-      font-size: 2.2em;
-      line-height: 1.2;
-      font-weight: normal;
-      max-width: 900px;
+      font-size: var(--t-micro);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 var(--s2) 0;
+    }
+
+    .display{
+      font-family: 'Special Elite', monospace;
+      font-weight: 400;
+      letter-spacing: 0.005em;
+    }
+
+    .h1{ font-size: var(--t-h1); }
+    .h2{ font-size: var(--t-h2); }
+
+    .lede{
+      font-size: 1.05rem;
+      color: var(--ink-2);
+      max-width: var(--measure);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* SIGNATURE — linha picotada de recorte.
+       O produto é impresso e recortado, então o divisor conta algo verdadeiro. */
+    .perf{
+      position: relative;
+      height: 1px;
+      max-width: var(--maxw);
       margin: 0 auto;
-      opacity: 0;
-      animation: fadeIn 0.9s ease-in-out forwards;
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--line) 0 10px,
+        transparent 10px 20px
+      );
     }
 
-    .hero-line{
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.0em;
-      color: #555;
-      margin: 28px auto 0 auto;
-      max-width: 660px;
-      line-height: 1.6;
-      opacity: 0;
-      animation: fadeIn 0.9s ease-in-out 0.2s forwards;
+    .perf::after{
+      content: "✂";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--paper);
+      color: var(--ink-3);
+      font-size: 0.85rem;
+      padding: 0 12px;
+      line-height: 1;
     }
 
-    .cta-wrap{
-      background-color: #F5F5DC;
-      text-align: center;
-      padding: 18px 20px 34px 20px;
-    }
+    .perf--on-card::after{ background-color: var(--paper-2); }
 
-    .cta-button-hero{
+    /* ============================================================
+       BOTÕES
+       ============================================================ */
+    .btn{
       display: inline-block;
-      background-color: #B22222;
+      background-color: var(--red);
       color: #FFFFFF;
       font-family: 'Roboto Slab', serif;
-      font-size: 1.2em;
-      font-weight: bold;
-      padding: 15px 35px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      padding: 17px 38px;
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      opacity: 0;
-      animation: fadeIn 0.9s ease-in-out 0.35s forwards;
+      box-shadow: 0 8px 22px rgba(126, 33, 28, 0.22);
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
     }
 
-    .cta-button-hero:hover{
-      transform: scale(1.05);
-      background-color: #c82828;
+    .btn:hover{
+      background-color: var(--red-2);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(126, 33, 28, 0.28);
     }
 
-    /* Badge de prova social no hero */
-    .hero-social-proof{
-      margin: 14px auto 0 auto;
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.82em;
-      color: #666;
-      line-height: 1.45;
-      max-width: 480px;
-      opacity: 0;
-      animation: fadeIn 0.9s ease-in-out 0.5s forwards;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 6px;
+    .btn--lg{
+      font-size: clamp(1.1rem, 3.4vw, 1.35rem);
+      padding: 20px 46px;
     }
 
-    .hero-social-proof .proof-dot{
-      color: #B22222;
-      font-size: 0.7em;
-    }
-
-    .hero-social-proof strong{
-      color: #B22222;
-    }
-
-    .cta-microtext{
-      margin: 10px auto 0 auto;
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.85em;
-      color: #888;
-      line-height: 1.35;
-      max-width: 380px;
-      opacity: 0;
-      animation: fadeIn 0.9s ease-in-out 0.6s forwards;
-    }
-
-    /* ===== Foto hero ===== */
-    .hero-image-wrap{
-      margin: 28px auto 0 auto;
-      max-width: 620px;
-      padding: 0 20px;
-    }
-
-    .hero-image{
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.13);
-      display: block;
-    }
-
-    @media (max-width: 480px){
-      .hero-title{ font-size: 1.75em; }
-      .hero-line{ margin-top: 20px; font-size: 0.98em; }
-      .hero-image-wrap{ padding: 0 12px; }
-    }
-
-    /* ===== Problema ===== */
-    .problem-title{
-      font-family: 'Special Elite', monospace;
-      font-size: 1.8em;
-      margin: 0 0 8px 0;
-      text-align: center;
-    }
-
-    .problem-rhetorical{
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.1em;
-      color: #B22222;
-      font-weight: 700;
-      text-align: center;
-      margin: 32px 0 32px 0;
-    }
-
-    .problem-sub{
-      font-family: 'Special Elite', monospace;
-      font-size: 1.55em;
-      margin: 0 0 18px 0;
-      text-align: center;
-      font-weight: normal;
-    }
-
-    .silent-consequence{
-      max-width: 720px;
-      margin: 0 auto 40px auto;
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.95em;
-      text-align: center;
-      color: #666;
-      line-height: 1.6;
-      font-style: italic;
-      padding: 0 10px;
-    }
-
-    .silent-consequence strong{
-      font-style: normal;
-      color: #444;
-      font-weight: 700;
-    }
-
-    .problem-container{
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .problem-column{
-      max-width: 280px;
-      margin: 8px 20px 20px 20px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideUpFadeIn 0.8s ease-out forwards;
-    }
-
-    .problem-column:nth-child(1){ animation-delay: 0.2s; }
-    .problem-column:nth-child(2){ animation-delay: 0.4s; }
-    .problem-column:nth-child(3){ animation-delay: 0.6s; }
-
-    @keyframes slideUpFadeIn{ to{ opacity: 1; transform: translateY(0); } }
-
-    .icon-clock{ animation: ticktock 2s infinite ease-in-out; transform-origin: center; }
-    @keyframes ticktock{ 0%,100%{ transform: rotate(0deg); } 50%{ transform: rotate(7deg); } }
-
-    .icon-phone{ animation: vibrate 2s infinite ease-in-out; }
-    @keyframes vibrate{ 0%,100%{ transform: translateX(0); } 25%{ transform: translateX(-2px); } 75%{ transform: translateX(2px); } }
-
-    .icon-heart{ animation: heart-pulse 2s infinite ease-in-out; transform-origin: center; }
-    @keyframes heart-pulse{ 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.08); } }
-
-    /* ===== Steps ===== */
-    .steps-container{
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      max-width: 640px;
-      margin: 30px auto 20px auto;
-    }
-
-    .step-card{
-      background-color: #ffffff;
-      border-radius: 14px;
-      padding: 16px 22px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
-      text-align: center;
-      font-family: 'Roboto Slab', serif;
-      transition: transform 0.2s ease;
-    }
-
-    .step-card:hover{ transform: translateY(-3px); }
-
-    .step-card h3{
-      color: #9e1f1f;
-      margin: 0 0 8px 0;
-      font-size: 1em;
-      font-weight: 700;
-    }
-
-    .step-card p{
-      margin: 0;
-      font-size: 0.93em;
-      color: #555;
+    .btn-note{
+      font-size: var(--t-small);
+      color: var(--ink-2);
+      margin: var(--s2) auto 0 auto;
+      max-width: 420px;
       line-height: 1.5;
     }
 
-    /* ===== Bônus ===== */
-    .bonus-wrap{
-      width: 100%;
+    @media (max-width: 520px){
+      .btn, .btn--lg{
+        display: block;
+        width: 100%;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero{ padding-top: clamp(40px, 8vw, 68px); }
+
+    .hero-title{ margin-bottom: var(--s3); }
+
+    .hero-lede{ margin-bottom: var(--s4); }
+
+    .hero-figure{
+      max-width: 620px;
+      margin: 0 auto var(--s4) auto;
+    }
+
+    .hero-facts{
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s1) 14px;
+      margin: var(--s3) auto 0 auto;
+      font-size: var(--t-small);
+      color: var(--ink-2);
+      max-width: 520px;
+    }
+
+    .hero-facts .dot{ color: var(--gold); font-size: 0.6em; }
+
+    /* ============================================================
+       PROBLEMA
+       ============================================================ */
+    .problem-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--s4) var(--s3);
+      max-width: 940px;
+      margin: var(--s5) auto 0 auto;
+    }
+
+    .problem-item{ text-align: center; }
+
+    .problem-item h3{
+      font-size: var(--t-h3);
+      font-weight: 700;
+      margin: var(--s2) 0 var(--s1) 0;
+    }
+
+    .problem-item p{
+      color: var(--ink-2);
+      font-size: 0.98rem;
+    }
+
+    .icon-badge{
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: var(--gold-tint);
+      display: flex;
+      align-items: center;
       justify-content: center;
     }
 
-    .bonus-list{
-      list-style: none;
-      padding: 0;
-      max-width: 520px;
-      width: 100%;
-      margin: 0 auto;
+    .icon-badge svg{ width: 28px; height: 28px; }
+
+    .quiet-note{
+      max-width: var(--measure);
+      margin: var(--s4) auto 0 auto;
+      font-style: italic;
+      color: var(--ink-2);
+      font-size: 1rem;
+    }
+
+    .quiet-note strong{ font-style: normal; }
+
+    /* ============================================================
+       PASOS
+       ============================================================ */
+    .steps{
+      display: grid;
+      gap: var(--s2);
+      max-width: 660px;
+      margin: var(--s4) auto 0 auto;
+    }
+
+    .step{
+      background-color: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: var(--s3) var(--s3);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--s2) 18px;
+      align-items: start;
       text-align: left;
     }
 
-    .bonus-list li{
-      position: relative;
-      padding-left: 26px;
-      margin: 0 0 22px 0;
-      line-height: 1.6;
+    .step-num{
+      font-family: 'Special Elite', monospace;
+      font-size: 1.1rem;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-row: span 2;
     }
 
-    .bonus-list li::before{
+    .step h3{
+      font-size: 1.02rem;
+      font-weight: 700;
+      align-self: center;
+    }
+
+    .step p{
+      grid-column: 2;
+      color: var(--ink-2);
+      font-size: 0.97rem;
+      margin: 0;
+    }
+
+    /* ============================================================
+       QUÉ INCLUYE
+       ============================================================ */
+    .include-block{
+      max-width: var(--measure);
+      margin: 0 auto var(--s5) auto;
+      text-align: center;
+    }
+
+    .include-block:last-of-type{ margin-bottom: 0; }
+
+    .include-block h3{
+      font-size: var(--t-h3);
+      font-weight: 700;
+      margin-bottom: var(--s3);
+    }
+
+    .include-block img{ margin: 0 auto var(--s3) auto; }
+
+    .include-block p{ color: var(--ink-2); }
+
+    .bonus{
+      list-style: none;
+      padding: 0;
+      margin: var(--s4) auto 0 auto;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .bonus li{
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: var(--s3);
+    }
+
+    .bonus li:last-child{ margin-bottom: 0; }
+
+    .bonus li::before{
       content: "✓";
       position: absolute;
       left: 0;
-      top: 2px;
-      color: #B22222;
-      font-size: 0.95em;
+      top: 1px;
+      color: var(--gold);
       font-weight: 700;
     }
 
-    .bonus-list strong{
-      display: block;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 4px;
+    .bonus strong{ display: block; margin-bottom: 2px; }
+
+    .bonus span{ display: block; color: var(--ink-2); font-size: 0.96rem; }
+
+    /* ============================================================
+       CATEGORÍAS (substitui os depoimentos falsos)
+       ============================================================ */
+    .cats{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: var(--s2);
+      max-width: 900px;
+      margin: var(--s4) auto 0 auto;
     }
 
-    .bonus-list span{
-      display: block;
-      color: #666;
-      font-size: 0.95em;
+    .cat{
+      background-color: var(--paper);
+      border: 1px dashed rgba(192, 138, 62, 0.5);
+      border-radius: var(--radius);
+      padding: var(--s3) var(--s2);
+      text-align: center;
     }
 
-    /* ===== Prova Social: cards individuais ===== */
-    .testimonials-grid{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      max-width: 980px;
-      margin: 30px auto 0 auto;
-      padding: 0 18px;
+    .cat-count{
+      font-family: 'Special Elite', monospace;
+      font-size: 1.9rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: var(--s1);
     }
 
-    .testimonial-card{
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
-      padding: 24px 22px;
-      max-width: 280px;
-      flex: 1 1 240px;
+    .cat h3{
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .cat p{
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      margin: 0;
+    }
+
+    /* ============================================================
+       PARA QUIÉN
+       ============================================================ */
+    .fits{
+      max-width: var(--measure);
+      margin: var(--s4) auto 0 auto;
+      display: grid;
+      gap: var(--s3);
+    }
+
+    .fit{
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: start;
       text-align: left;
     }
 
-    .testimonial-card-header{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
+    .fit svg{ width: 26px; height: 26px; margin-top: 4px; }
 
-    .testimonial-avatar{
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background-color: #B22222;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.1em;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .testimonial-name{
-      font-family: 'Roboto Slab', serif;
-      font-weight: 700;
-      font-size: 0.95em;
-      color: #333;
-      margin: 0 0 2px 0;
-    }
-
-    .testimonial-meta{
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.78em;
-      color: #888;
-      margin: 0;
-    }
-
-    .testimonial-stars{
-      color: #B22222;
-      font-size: 0.9em;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
-
-    .testimonial-text{
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.92em;
-      color: #555;
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    @media (max-width: 520px){
-      .testimonials-grid{
-        flex-direction: column;
-        align-items: center;
-      }
-      .testimonial-card{
-        max-width: 100%;
-      }
-    }
-
-    /* ===== Seção: O Diário de Missões é para casais que ===== */
-    .target-list-container{
-      max-width: 800px;
+    /* ============================================================
+       OFERTA
+       ============================================================ */
+    .offer{
+      max-width: 780px;
       margin: 0 auto;
-    }
-
-    .target-item{
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 25px;
-      font-size: 1.1em;
-      line-height: 1.6;
-      color: #333;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: bounceInFade 1s ease-out forwards;
-    }
-
-    .target-item:nth-of-type(1){ animation-delay: 0.2s; }
-    .target-item:nth-of-type(2){ animation-delay: 0.3s; }
-    .target-item:nth-of-type(3){ animation-delay: 0.4s; }
-
-    .target-icon svg{
-      flex-shrink: 0;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .target-item:hover .target-icon svg{
-      transform: scale(1.12) rotate(4deg);
-    }
-
-    @keyframes bounceInFade{
-      0%{ opacity: 0; transform: translateY(50px) scale(0.8); }
-      70%{ opacity: 1; transform: translateY(-5px) scale(1.02); }
-      100%{ opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .block-title-animated{
-      opacity: 0;
-      transform: scale(0.9);
-      animation: zoomInFade 1s ease-out forwards;
-      animation-delay: 0.1s;
-    }
-
-    @keyframes zoomInFade{ to{ opacity: 1; transform: scale(1); } }
-
-    .final-paragraph-animated{
-      opacity: 0;
-      transform: translateY(20px);
-      animation: slideUpFadeIn 1s ease-out forwards;
-      animation-delay: 1.1s;
-    }
-
-    /* ===== Contador regressivo ===== */
-    .countdown-wrap{
-      margin: 10px auto 18px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .countdown-label{
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.88em;
-      color: #888;
-    }
-
-    .countdown-timer{
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .countdown-unit{
-      background: #B22222;
-      color: #fff;
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.1em;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 6px;
-      min-width: 38px;
+      background-color: var(--paper-2);
+      border: 2px dashed rgba(158, 43, 37, 0.38);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 6vw, 48px) var(--gutter);
       text-align: center;
+      box-shadow: 0 12px 40px rgba(43, 38, 32, 0.07);
     }
 
-    .countdown-sep{
-      color: #B22222;
-      font-weight: 700;
-      font-size: 1.1em;
-    }
-
-    .countdown-revert-note{
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.8em;
-      color: #999;
-      margin: 4px 0 0 0;
-      text-align: center;
-    }
-
-    /* Reframe de preço */
-    .price-reframe{
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.95em;
-      color: #777;
-      font-style: italic;
-      margin: 4px 0 12px 0;
-    }
-
-    /* Social proof abaixo do botão */
-    .cta-social-proof{
-      margin: 10px auto 0 auto;
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.85em;
-      color: #888;
-      line-height: 1.4;
-      max-width: 440px;
-    }
-
-    /* ===== Oferta ===== */
-    #oferta .offer-box{
-      max-width: 820px;
-      margin: 0 auto;
-      background: #fff;
-      border: 2px dashed rgba(178,34,34,0.42);
-      border-radius: 18px;
-      padding: 32px 22px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-      text-align: center;
-      opacity: 0;
-      transform: translateY(14px);
-      animation: ofertaFadeUp 0.7s ease-out forwards;
-    }
-
-    @keyframes ofertaFadeUp{ to{ opacity: 1; transform: translateY(0); } }
-
-    #oferta .offer-title{
-      font-family: 'Special Elite', monospace;
-      font-size: 2.1em;
-      letter-spacing: 0.06em;
-      margin: 0 0 12px 0;
-      color: #333;
-    }
-
-    #oferta .offer-sub{
-      max-width: 640px;
-      margin: 0 auto 14px auto;
-      font-size: 1.05em;
-      color: #555;
-      line-height: 1.55;
-    }
-
-    #oferta .offer-list{
+    .offer-list{
       list-style: none;
       padding: 0;
-      margin: 0 auto 18px auto;
-      max-width: 660px;
+      margin: var(--s3) auto var(--s4) auto;
+      max-width: 560px;
       text-align: left;
     }
 
-    #oferta .offer-list li{
+    .offer-list li{
       position: relative;
-      padding-left: 26px;
-      margin: 0 0 10px 0;
-      color: #555;
-      line-height: 1.45;
-      font-size: 1.02em;
+      padding-left: 30px;
+      margin-bottom: 12px;
+      color: var(--ink-2);
     }
 
-    #oferta .offer-list li::before{
+    .offer-list li:last-child{ margin-bottom: 0; }
+
+    .offer-list li::before{
       content: "✓";
       position: absolute;
       left: 0;
       top: 0;
-      color: #B22222;
-      font-weight: 800;
-    }
-
-    #oferta .offer-anchor{
-      margin: 12px 0 8px 0;
-      color: #666;
-      font-size: 1.08em;
-    }
-
-    #oferta .offer-for{
-      margin: 6px 0 6px 0;
-      font-size: 1.15em;
-      color: #333;
-    }
-
-    #oferta .final-price{
-      font-size: 3.0em;
-      color: #B22222;
-      font-weight: 800;
-      line-height: 1;
-      margin: 6px 0 4px 0;
-      opacity: 0;
-      transform: scale(0.92);
-      animation: popPrice 0.55s ease-out forwards;
-      animation-delay: 0.25s;
-    }
-
-    @keyframes popPrice{ to{ opacity: 1; transform: scale(1); } }
-
-    #oferta .offer-note{
-      margin: 0 0 16px 0;
-      color: #666;
+      color: var(--gold);
       font-weight: 700;
+    }
+
+    .price-anchor{
+      color: var(--ink-2);
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .price-anchor del{ text-decoration-thickness: 1.5px; }
+
+    .price-label{ color: var(--ink-2); font-size: 0.95rem; margin-bottom: 4px; }
+
+    .price{
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 9vw, 3.4rem);
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: var(--s1);
+    }
+
+    .price-reframe{
       font-style: italic;
+      color: var(--ink-2);
+      font-size: 0.95rem;
+      margin-bottom: var(--s4);
     }
 
-    #oferta .final-cta-button{
+    .offer-trust{
+      font-size: var(--t-small);
+      color: var(--ink-2);
+      margin: var(--s3) auto 0 auto;
+      max-width: 480px;
+    }
+
+    .delivery{
       display: inline-block;
-      background-color: #B22222;
-      color: #FFFFFF;
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.45em;
-      font-weight: bold;
-      padding: 20px 42px;
-      text-decoration: none;
+      margin-top: var(--s3);
+      padding: 12px 18px;
       border-radius: 10px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-      transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
-      margin-top: 6px;
+      background-color: var(--gold-tint);
+      color: #7A5620;
+      font-size: 0.92rem;
+      line-height: 1.45;
     }
 
-    #oferta .final-cta-button:hover{
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.22);
-      background-color: #c82828;
+    .guarantee{
+      margin-top: var(--s4);
+      padding-top: var(--s4);
+      border-top: 1px solid var(--line);
     }
 
-    #oferta .offer-trust{
-      margin: 14px auto 0 auto;
-      font-size: 0.92em;
-      color: #777;
-      line-height: 1.35;
-      max-width: 520px;
+    .guarantee-seal{
+      width: 62px;
+      height: 62px;
+      margin: 0 auto var(--s2) auto;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
     }
 
-    #oferta .delivery-badge{
-      display: inline-block;
-      margin: 14px auto 10px auto;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background-color: rgba(178, 34, 34, 0.08);
-      color: #7a1a1a;
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.92em;
-      line-height: 1.35;
+    .guarantee-seal svg{ width: 28px; height: 28px; }
+
+    .guarantee h3{
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: var(--s2);
+    }
+
+    .guarantee p{
+      max-width: 560px;
+      margin: 0 auto;
+      color: var(--ink-2);
+      font-size: 0.98rem;
+    }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq{ max-width: var(--measure); margin: var(--s4) auto 0 auto; }
+
+    .faq details{
+      border-bottom: 1px solid var(--line);
+      padding: var(--s3) 0;
+    }
+
+    .faq details:first-of-type{ border-top: 1px solid var(--line); }
+
+    .faq summary{
+      font-weight: 700;
+      font-size: 1.02rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--s2);
+    }
+
+    .faq summary::-webkit-details-marker{ display: none; }
+
+    .faq summary::after{
+      content: "+";
+      color: var(--gold);
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1;
+      flex-shrink: 0;
+      transition: transform .2s ease;
+    }
+
+    .faq details[open] summary::after{ transform: rotate(45deg); }
+
+    .faq details p{
+      margin: var(--s2) 0 0 0;
+      color: var(--ink-2);
+      font-size: 0.98rem;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer{
+      background-color: var(--ink);
+      color: rgba(247, 241, 228, 0.72);
+      padding: var(--s5) var(--gutter) calc(var(--s5) + 70px) var(--gutter);
+      font-size: var(--t-small);
+      line-height: 1.65;
       text-align: center;
     }
 
-    #oferta .guarantee-box{
-      margin-top: 18px;
-      padding-top: 14px;
+    .footer-brand{
+      font-family: 'Special Elite', monospace;
+      font-size: 1.15rem;
+      color: var(--paper);
+      letter-spacing: 0.06em;
+      margin-bottom: var(--s3);
     }
 
-    #oferta .guarantee-seal{
-      width: 92px;
-      height: auto;
+    .footer-links{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--s1) var(--s3);
+      margin-bottom: var(--s3);
+    }
+
+    .footer a{ color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
+    .footer a:hover{ color: var(--gold); }
+
+    .footer-legal{
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: var(--t-micro);
+      color: rgba(247, 241, 228, 0.5);
+    }
+
+    @media (min-width: 720px){
+      .footer{ padding-bottom: var(--s5); }
+    }
+
+    /* ============================================================
+       CTA FIXO (mobile)
+       ============================================================ */
+    .sticky-cta{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 90;
+      background-color: rgba(247, 241, 228, 0.97);
+      border-top: 1px solid var(--line);
+      padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+      transform: translateY(110%);
+      transition: transform .28s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .sticky-cta.is-visible{ transform: translateY(0); }
+
+    .sticky-cta a{
       display: block;
-      margin: 0 auto 10px auto;
-      animation: pulseSeal 2.6s ease-in-out infinite;
+      background-color: var(--red);
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 15px 12px;
+      border-radius: 10px;
     }
 
-    @keyframes pulseSeal{
-      0%,100%{ transform: scale(1); }
-      50%{ transform: scale(1.04); }
+    .sticky-cta span{
+      display: block;
+      text-align: center;
+      font-size: var(--t-micro);
+      color: var(--ink-2);
+      margin-top: 6px;
     }
 
-    #oferta .guarantee-title{
-      font-size: 1.15em;
-      font-weight: 800;
-      margin: 6px 0 8px 0;
-      color: #333;
+    @media (min-width: 720px){
+      .sticky-cta{ display: none; }
     }
 
-    #oferta .guarantee-text{
-      max-width: 620px;
-      margin: 0 auto;
-      color: #555;
-      line-height: 1.55;
-      font-size: 1.02em;
-    }
-
-    @media (max-width: 520px){
-      #oferta .offer-box{ padding: 26px 14px; }
-      #oferta .offer-title{ font-size: 1.75em; }
-      #oferta .final-price{ font-size: 2.6em; }
-      #oferta .final-cta-button{
-        width: 100%;
-        max-width: 420px;
-        padding: 18px 0;
-        font-size: 1.25em;
-      }
-    }
-
-    /* ===== FAQ ===== */
-    .faq-container{
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item{
-      border-bottom: 1px solid #EAEAEA;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
-    }
-
-    .faq-item:last-child{ border-bottom: none; }
-
-    .faq-question{
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.3em;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .faq-answer{
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.1em;
-      color: #555;
-      line-height: 1.7;
-    }
-
-    .faq-title-animated{
+    /* ============================================================
+       MOVIMENTO
+       ============================================================ */
+    .reveal{
       opacity: 0;
-      transform: translateY(20px);
-      animation: faqTitleFadeIn 1s ease-out forwards;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
     }
 
-    @keyframes faqTitleFadeIn{ to{ opacity: 1; transform: translateY(0); } }
+    .reveal.is-in{ opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      .reveal{ opacity: 1; transform: none; transition: none; }
+      .sticky-cta{ transition: none; }
+      *, *::before, *::after{ animation-duration: .001ms !important; }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <!-- ✅ ALTERADO: headline mais específica e que causa identificação imediata -->
-    <h1 class="hero-title">O casal que não briga mas também não conversa de verdade.</h1>
-    <!-- ✅ ALTERADO: subheadline deixa claro o que é o produto, o mecanismo e quebra objeções -->
-    <p class="hero-line">O Diário de Missões reconecta casais em 30 dias com 2 missões simples por dia, mesmo com a rotina corrida. Sem precisar de terapia ou conversa difícil.</p>
-  </section>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W97L2JBM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <section class="cta-wrap">
-    <a href="https://pay.hotmart.com/F100778435S?checkoutMode=10" class="cta-button-hero cta-pulse">COMEÇAR HOJE!</a>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="section section--paper hero center">
+    <div class="wrap">
+      <p class="eyebrow">Una aventura de dos · 30 días</p>
 
-    <!-- ✅ ADICIONADO: prova social numérica logo abaixo do botão no hero -->
-    <div class="hero-social-proof">
-      <strong>+ de 500 casais</strong> já reconectaram com o Diário de Missões
-      <span class="proof-dot">•</span>
-      Acesso imediato
-      <span class="proof-dot">•</span>
-      Garantia de 7 dias
-    </div>
+      <h1 class="display h1 hero-title">La pareja que se quiere, pero ya no se sorprende de verdad.</h1>
 
-    <p class="cta-microtext">Arquivo em PDF para imprimir • Compra 100% segura</p>
-
-    <!-- ✅ FOTO HERO: substitua o src abaixo pelo caminho da sua imagem -->
-    <div class="hero-image-wrap">
-      <img
-        src="COLOQUE_AQUI_O_CAMINHO_DA_SUA_FOTO.jpg"
-        alt="Diário de Missões impresso"
-        class="hero-image"
-      >
-    </div>
-
-  </section>
-
-  <!-- Transição -->
-  <div style="height: 26px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);"></div>
-
-  <!-- PROBLEMA -->
-  <section style="background-color:#FFFFFF; text-align:center; padding:24px 20px 15px 20px;">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <!-- ✅ ALTERADO: headline mais conversacional e cria cumplicidade -->
-      <h2 class="problem-title">Ninguém acorda um dia e decide parar de se escolher. Acontece aos poucos.</h2>
-
-      <!-- ✅ ADICIONADO: pergunta retórica antes dos cards de dor -->
-      <p class="problem-rhetorical">Você reconhece alguma dessas situações?</p>
-
-      <p class="silent-consequence">
-        Ela começa quando o diálogo diminui, os gestos ficam raros...<br>
-        <strong>e a vida a dois entra no automático.</strong><br>
-        E quando percebem, a distância já parece normal.
-      </p>
-    </div>
-
-    <div style="background-color:#FFFFFF; text-align:center; padding:6px 20px 15px 20px;">
-      <div class="problem-container">
-
-        <div class="problem-column">
-          <svg class="icon-clock" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
-            <path fill="#B22222" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
-            <path fill="#FFFFFF" d="M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"></path>
-            <path fill="#333333" d="M12.5,7V12.25L16,14.25L15.25,15.5L11,13V7H12.5Z"></path>
-          </svg>
-          <h4 style="font-family:'Roboto Slab', serif; font-size:1.3em; margin-top:15px; color:#333;">Falta de Tempo e Ideias</h4>
-          <p style="color:#555; line-height:1.6;">As conversas viraram rotina e a criatividade para surpreender desapareceu com a correria.</p>
-        </div>
-
-        <div class="problem-column">
-          <svg class="icon-phone" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
-            <path fill="#555555" d="M17,1H7C5.89,1 5,1.89 5,3V21C5,22.11 5.9,23 7,23H17C18.11,23 19,22.11 19,21V3C19,1.89 18.1,1 17,1M17,19H7V5H17V19Z"></path>
-            <rect fill="#F5F5DC" x="8" y="6" width="8" height="12"></rect>
-          </svg>
-          <h4 style="font-family:'Roboto Slab', serif; font-size:1.3em; margin-top:15px; color:#333;">Distração com as Telas</h4>
-          <p style="color:#555; line-height:1.6;">As noites a dois foram substituídas por cada um no seu próprio mundo digital, lado a lado no sofá.</p>
-        </div>
-
-        <div class="problem-column">
-          <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
-            <path fill="#B22222" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
-          </svg>
-          <h4 style="font-family:'Roboto Slab', serif; font-size:1.3em; margin-top:15px; color:#333;">A "Faísca" se Apagando</h4>
-          <p style="color:#555; line-height:1.6;">Aquela sensação de borboletas no estômago e a vontade de flertar deram lugar ao conforto do piloto automático.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Transição -->
-  <div style="height: 50px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);"></div>
-
-  <!-- COMO FUNCIONA (mantido) -->
-  <section style="background-color:#F5F5DC; padding:15px 20px; text-align:center;">
-    <div style="max-width:800px; margin:0 auto;">
-      <h2 style="font-family:'Special Elite', monospace; font-size:2.2em;">Como Funciona Na Prática</h2>
-
-      <div class="steps-container">
-        <div class="step-card">
-          <h3>1. Separem alguns minutos por dia</h3>
-          <p>Vocês decidem sair do piloto automático e reservar poucos minutos por dia para viver as missões juntos.</p>
-        </div>
-
-        <div class="step-card">
-          <h3>2. Duas missões por dia (uma para cada)</h3>
-          <p>Todo dia, cada parceiro recebe 1 missão para cumprir e surpreender o outro. São 2 missões por dia: simples, rápidas e cheias de intenção.</p>
-        </div>
-
-        <div class="step-card">
-          <h3>3. Sintam a mudança acontecer</h3>
-          <p>Aos poucos, o clima fica mais leve, o diálogo volta e a vida a dois ganha novo significado.</p>
-        </div>
-      </div>
-
-      <h4 style="font-family:'Roboto Slab', serif; font-size:1.3em; margin-top:25px; color:#333;">
-        Veja como o Diário de Missões se parece:
-      </h4>
-
-      <img src="https://i.imgur.com/PjyvbLg.png" alt="Mockup do Diário de Missões" style="max-width:100%; width:700px; margin:10px 0;">
-    </div>
-
-    <div style="text-align:center; margin:40px 0;">
-      <a href="https://pay.hotmart.com/F100778435S?checkoutMode=10" class="cta-button-hero cta-pulse">COMEÇAR HOJE!</a>
-    </div>
-  </section>
-
-  <!-- Transição -->
-  <div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);"></div>
-
-  <!-- VALUE STACK + BONUS -->
-  <section style="background-color:#FFFFFF; padding:15px 20px;">
-    <div style="max-width:900px; margin:0 auto;">
-      <h2 style="font-family:'Special Elite', monospace; font-size:1.5em; text-align:center; margin-bottom:20px;">
-        Tudo o Que Vocês Precisam Para Se Reconectar Em 30 Dias
-      </h2>
-
-      <p style="max-width:760px; margin:10px auto 30px auto; font-family:'Roboto Slab', serif; font-size:1.0em; line-height:1.7; color:#555; text-align:center; padding:0 10px;">
-        Vocês recebem um kit completo com <strong style="color:#333;">60 cartas prontas</strong>,
-        <strong style="color:#333;">envelopes temáticos</strong> e um
-        <strong style="color:#333;">diário de bordo</strong> para transformar pequenos momentos
-        em grandes reconexões, mesmo com a rotina corrida.
-        <br><br>
-        É simples. É leve. E funciona porque foi pensado para a vida real.
+      <p class="lede hero-lede">
+        El Diario de Misiones reconecta parejas en 30 días con 2 misiones sencillas por día,
+        incluso con la rutina más ocupada. Sin terapia y sin conversaciones difíciles.
       </p>
 
-      <div class="value-row">
-        <div class="value-text">
-          <h3 style="font-family:'Roboto Slab', serif; font-size:1.4em; text-align:center; color:#333;">
-            60 experiências pensadas para tirar vocês do automático.
-          </h3>
-          <div style="margin:18px 0;">
-            <img src="https://i.imgur.com/OqxDc1J.png" alt="Mockup do Jogo Diário de Missões"
-              style="box-shadow:none; border-radius:0; width:80%; max-width:520px; display:block; margin:0 auto;">
-          </div>
-          <p style="color:#555; line-height:1.6; font-size:1.1em; text-align:center;">
-            Cada carta propõe uma missão simples e prática: pequenos gestos, conversas inesperadas e desafios leves que reacendem o carinho, o toque e a parceria no dia a dia.
-          </p>
-        </div>
+      <!-- TODO: reemplazar por imagen propia en solonosotrosdos.com/img/ y añadir width/height reales -->
+      <div class="hero-figure">
+        <img src="https://i.imgur.com/uaWJy4u.png"
+             alt="Cartas y sobres impresos del Diario de Misiones sobre una mesa"
+             fetchpriority="high" decoding="async">
       </div>
 
-      <div class="value-row">
-        <div class="value-text">
-          <h3 style="font-family:'Roboto Slab', serif; font-size:1.6em; text-align:center; color:#333;">
-            Envelopes Temáticos + Diário de Bordo
-          </h3>
-          <div style="margin:18px 0;">
-            <img src="https://i.imgur.com/66QTAIV.png" alt="Mockup do Jogo Diário de Missões"
-              style="box-shadow:none; border-radius:0; width:72%; max-width:300px; display:block; margin:0 auto;">
-          </div>
-          <p style="color:#555; line-height:1.6; font-size:1.1em; text-align:center;">
-            Não é só um jogo.<br>
-            É uma experiência guiada.<br>
-            Vocês escolhem a missão, registram o momento e constroem uma nova fase da história de vocês juntos.
-          </p>
-        </div>
-      </div>
+      <a href="https://pay.hotmart.com/R105503656J?off=2j78xysu"
+         class="btn" data-checkout data-cta="hero">EMPEZAR HOY</a>
 
-      <div style="display:block; text-align:center; margin-top:25px;">
-        <h3 style="font-family:'Roboto Slab', serif; font-size:1.5em; color:#B22222;">
-          E Para Aprofundar Ainda Mais a Conexão, Vocês Também Recebem:
-        </h3>
-        <div class="bonus-wrap">
-          <ul class="bonus-list">
-            <li>
-              <strong>Planejador de Encontros</strong>
-              <span>Para criar momentos especiais sem depender de datas comemorativas.</span>
-            </li>
-            <li>
-              <strong>15 Perguntas Para Elevar a Temperatura</strong>
-              <span>Conversas que despertam intimidade, curiosidade e proximidade emocional.</span>
-            </li>
-          </ul>
+      <p class="btn-note">Descarga en PDF para imprimir · Compra 100% segura</p>
+
+      <div class="hero-facts">
+        <span>60 misiones</span>
+        <span class="dot">●</span>
+        <span>Acceso inmediato</span>
+        <span class="dot">●</span>
+        <span>Garantía de 30 días</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="perf" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       PROBLEMA
+       ============================================================ -->
+  <section class="section section--card center">
+    <div class="wrap">
+      <h2 class="display h2 reveal">Nadie decide un día dejar de elegir a su persona.<br>Pasa poquito a poquito.</h2>
+
+      <p class="quiet-note reveal">
+        Todo empieza cuando la conversación se vuelve escasa y los detalles desaparecen…
+        <strong>y la vida en pareja entra en piloto automático.</strong>
+        Cuando se dan cuenta, esa distancia ya se siente normal.
+      </p>
+
+      <div class="problem-grid">
+
+        <div class="problem-item reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C08A3E" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3>Falta de tiempo e ideas</h3>
+          <p>Las conversaciones se volvieron puro trámite y la creatividad para sorprenderse desapareció con el afán del día a día.</p>
         </div>
+
+        <div class="problem-item reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C08A3E" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+              <path d="M12 18h.01"></path>
+            </svg>
+          </div>
+          <h3>Distraídos con las pantallas</h3>
+          <p>Las noches juntos fueron reemplazadas por cada uno en su propio mundo digital, sentados el uno al lado del otro sin realmente estar.</p>
+        </div>
+
+        <div class="problem-item reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C08A3E" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+            </svg>
+          </div>
+          <h3>La chispa se fue apagando</h3>
+          <p>Esas ganas de conquistarse, de sorprenderse, de mirarse diferente… dieron paso a la comodidad del piloto automático.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CTA intermediário -->
-  <section style="background-color:#FFFFFF; text-align:center; padding:20px 20px 30px 20px;">
-    <a href="https://pay.hotmart.com/F100778435S?checkoutMode=10" class="cta-button-hero cta-pulse">COMEÇAR HOJE!</a>
-  </section>
+  <div class="perf perf--on-card" aria-hidden="true"></div>
 
-  <!-- Seção: Para casais que -->
-  <div style="height: 50px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);"></div>
+  <!-- ============================================================
+       CÓMO FUNCIONA
+       ============================================================ -->
+  <section class="section section--paper center">
+    <div class="wrap">
+      <p class="eyebrow">El método</p>
+      <h2 class="display h2 reveal">Cómo funciona en la práctica</h2>
 
-  <section style="background-color:#F5F5DC; padding:15px 20px; text-align:center;">
-    <div class="target-list-container">
-      <h2 class="block-title-animated" style="font-family:'Special Elite', monospace; font-size:2.0em; text-align:center; margin-bottom:50px;">
-        O Diário de Missões é para casais que:
-      </h2>
+      <div class="steps">
 
-      <div class="target-item">
-        <div class="target-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 2h4M7 22h10M12 2v20"></path><path d="M2 12h20"></path><path d="M5 7h14M5 17h14"></path>
-          </svg>
-        </div>
-        <div><strong>A rotina esfriou a relação</strong> e vocês querem voltar a se escolher.</div>
+        <article class="step reveal">
+          <div class="step-num">1</div>
+          <h3>Aparten unos minuticos al día</h3>
+          <p>Ustedes toman la decisión de salir del piloto automático y dedicar unos pocos minutos al día para vivir las misiones juntos.</p>
+        </article>
+
+        <article class="step reveal">
+          <div class="step-num">2</div>
+          <h3>Dos misiones por día, una para cada uno</h3>
+          <p>Cada día, cada integrante recibe una misión para cumplir y sorprender al otro. Son sencillas, rápidas y llenas de intención.</p>
+        </article>
+
+        <article class="step reveal">
+          <div class="step-num">3</div>
+          <h3>Sientan el cambio en el ambiente</h3>
+          <p>Poco a poco, todo se vuelve más bonito entre ustedes, la conversación regresa y la vida en pareja cobra un nuevo significado.</p>
+        </article>
+
       </div>
 
-      <div class="target-item">
-        <div class="target-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0,1-2 2H7l-4 4V5a2 2 0 0,1 2-2h11a2 2 0 0,1 2 2z"></path>
-          </svg>
-        </div>
-        <div><strong>O diálogo diminuiu</strong> e tudo virou automático.</div>
-      </div>
-
-      <div class="target-item">
-        <div class="target-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B22222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.77-.77-.77a5.4 5.4 0 0 0-7.65 0C2.46 6.47 2.46 10 4 12l8 8 8-8c1.54-2 1.54-5.53 0-7.42z"></path>
-            <path d="M12 5.5V12l-4 4"></path>
-          </svg>
-        </div>
-        <div><strong>Querem resgatar carinho e intimidade</strong> com leveza e sem pressão.</div>
-      </div>
-
-      <p class="final-paragraph-animated" style="font-family:'Roboto Slab', serif; text-align:center; font-size:1.2em; margin-top:50px; color:#555; max-width:700px; margin-left:auto; margin-right:auto;">
-        Não é preciso terapia ou conversas difíceis. Só alguns minutos por dia para se escolherem novamente.
+      <p style="margin-top: var(--s4);">
+        <a href="https://pay.hotmart.com/R105503656J?off=2j78xysu"
+           class="btn" data-checkout data-cta="metodo">EMPEZAR HOY</a>
       </p>
     </div>
   </section>
 
-  <!-- PROVA SOCIAL -->
-  <!-- ✅ ALTERADO: headline mais direta + cards individuais com nome/avatar/cidade -->
-  <section style="background-color:#F5F5DC; padding:15px 20px 40px 20px;">
-    <div style="max-width:1200px; margin:0 auto; text-align:center;">
+  <div class="perf" aria-hidden="true"></div>
 
-      <h3 style="font-family:'Special Elite', monospace; font-size:1.8em; margin-bottom:8px;">
-        Casais reais. Resultados reais.
-      </h3>
-      <p style="font-size:1.1em; color:#666; max-width:600px; margin:0 auto 30px auto; line-height:1.6;">
-        A conexão não voltou de uma vez… ela voltou nos pequenos detalhes.
+  <!-- ============================================================
+       QUÉ INCLUYE
+       ============================================================ -->
+  <section class="section section--card center">
+    <div class="wrap">
+      <p class="eyebrow">Qué reciben</p>
+      <h2 class="display h2 reveal">Todo lo que necesitan para reconectarse en 30 días</h2>
+
+      <p class="lede reveal" style="margin-top: var(--s3); margin-bottom: var(--s5);">
+        Un kit completo con <strong>60 cartas listas</strong>, <strong>sobres temáticos</strong>
+        y un <strong>diario de experiencias</strong> para convertir pequeños momentos en grandes
+        reconexiones. Es sencillo, es bonito, y está pensado para la vida real de las parejas.
       </p>
-      <div class="testimonials-grid">
 
-        <div class="testimonial-card">
-          <div class="testimonial-card-header">
-            <div class="testimonial-avatar">MS</div>
-            <div>
-              <p class="testimonial-name">Mariana S.</p>
-              <p class="testimonial-meta">São Paulo, SP · 6 anos juntos</p>
-            </div>
-          </div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Nosso relacionamento não estava ruim, mas também não tinha mais aquela conexão de antes. A gente vivia no automático. Começamos o diário meio sem expectativa, e já nos primeiros dias fez muita diferença. As missões são simples, mas fazem você parar e olhar pro outro de verdade. Está sendo muito especial."</p>
+      <div class="include-block reveal">
+        <h3>60 experiencias para sacarlos del automático</h3>
+        <!-- TODO: self-host -->
+        <img src="https://i.imgur.com/799rXMW.png"
+             alt="Las 60 cartas de misión del Diario de Misiones"
+             loading="lazy" decoding="async" style="max-width: 480px;">
+        <p>Cada carta propone una misión sencilla y práctica: pequeños gestos, conversaciones inesperadas y retos ligeros que despiertan el cariño, el contacto y la complicidad del día a día.</p>
+      </div>
+
+      <div class="include-block reveal">
+        <h3>Sobres temáticos + diario de experiencias</h3>
+        <!-- TODO: self-host -->
+        <img src="https://i.imgur.com/652fKCp.png"
+             alt="Sobres temáticos y diario de experiencias para registrar cada misión"
+             loading="lazy" decoding="async" style="max-width: 300px;">
+        <p>No es solo un juego: es una experiencia guiada para los dos. Eligen la misión, registran el momento y construyen juntos una nueva etapa de su historia.</p>
+      </div>
+
+      <div class="include-block reveal">
+        <h3 style="color: var(--gold);">Y para profundizar aún más su conexión</h3>
+        <ul class="bonus">
+          <li>
+            <strong>Planificador de Encuentros</strong>
+            <span>Para crear momentos especiales sin esperar fechas especiales.</span>
+          </li>
+          <li>
+            <strong>15 Preguntas Para Subir la Temperatura</strong>
+            <span>Conversaciones que despiertan la intimidad, la curiosidad y la cercanía emocional entre ustedes dos.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="perf perf--on-card" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       CATEGORÍAS DE MISIONES
+       Sustituye los testimonios inventados por prueba de mecanismo.
+       AJUSTAR los nombres/cantidades al contenido real del PDF.
+       ============================================================ -->
+  <section class="section section--paper center">
+    <div class="wrap">
+      <p class="eyebrow">Qué hay adentro</p>
+      <h2 class="display h2 reveal">Las 60 misiones, en cuatro terrenos</h2>
+
+      <p class="lede reveal" style="margin-top: var(--s3);">
+        No son retos al azar. Cada bloque trabaja una parte distinta de la relación,
+        para que los 30 días avancen en vez de repetirse.
+      </p>
+
+      <div class="cats">
+        <div class="cat reveal">
+          <div class="cat-count">15</div>
+          <h3>Conversación</h3>
+          <p>Preguntas y momentos que sacan a la pareja del "¿cómo te fue?" automático.</p>
+        </div>
+        <div class="cat reveal">
+          <div class="cat-count">15</div>
+          <h3>Detalles</h3>
+          <p>Gestos pequeños que se notan: los que hacían al principio y dejaron de hacer.</p>
+        </div>
+        <div class="cat reveal">
+          <div class="cat-count">15</div>
+          <h3>Complicidad</h3>
+          <p>Retos ligeros para reírse juntos y volver a ser equipo, no compañeros de casa.</p>
+        </div>
+        <div class="cat reveal">
+          <div class="cat-count">15</div>
+          <h3>Intimidad</h3>
+          <p>Cercanía y contacto, sin presión y sin nada incómodo. A su ritmo.</p>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           ESPACIO PARA TESTIMONIOS REALES
+           Recoger durante los primeros 30 días (email post-compra a los 7 días)
+           y activar esta sección. No publicar nada inventado.
+           ============================================================ -->
+    </div>
+  </section>
+
+  <div class="perf" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       PARA QUIÉN
+       ============================================================ -->
+  <section class="section section--card center">
+    <div class="wrap">
+      <h2 class="display h2 reveal">El Diario de Misiones es para parejas que:</h2>
+
+      <div class="fits">
+
+        <div class="fit reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C08A3E" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+          </svg>
+          <div><strong>La rutina enfrió la relación</strong> y quieren volver a ser la persona favorita del otro.</div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-card-header">
-            <div class="testimonial-avatar">JR</div>
-            <div>
-              <p class="testimonial-name">Juliana R.</p>
-              <p class="testimonial-meta">Belo Horizonte, MG · 4 anos juntos</p>
-            </div>
-          </div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Comprei achando que seria algo bobo, mas me surpreendi muito. As missões fazem você sair da rotina de um jeito leve, sem pressão. A gente voltou a conversar mais, rir mais, parecia começo de namoro novo. Vale muito a pena."</p>
+        <div class="fit reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C08A3E" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+          </svg>
+          <div><strong>Las conversaciones disminuyeron</strong> y todo se volvió automático.</div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-card-header">
-            <div class="testimonial-avatar">CT</div>
-            <div>
-              <p class="testimonial-name">Camila T.</p>
-              <p class="testimonial-meta">Curitiba, PR · 8 anos juntos</p>
-            </div>
-          </div>
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Depois de anos juntos, é normal cair na rotina, mas o diário ajudou a gente a quebrar isso de um jeito simples. Não precisa de nada complicado. São pequenos gestos que fazem muita diferença. Recomendo demais para qualquer casal."</p>
+        <div class="fit reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C08A3E" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"></path>
+          </svg>
+          <div><strong>Quieren recuperar el cariño y la intimidad</strong> sin complicaciones y sin presión.</div>
         </div>
 
       </div>
 
-
+      <p class="lede reveal" style="margin-top: var(--s5);">
+        No se necesita terapia ni conversaciones difíciles. Solo unos minuticos al día
+        para elegirse de nuevo, con amor y con intención.
+      </p>
     </div>
   </section>
 
-  <!-- Transição -->
-  <div style="height: 50px; background: linear-gradient(to bottom, #F5F5DC, #FFFFFF);"></div>
+  <div class="perf perf--on-card" aria-hidden="true"></div>
 
-  <!-- OFERTA -->
-  <section id="oferta" style="padding:15px 20px; background-color:#FFFFFF;">
-    <div class="offer-box">
-      <h2 class="offer-title">Vocês Podem Começar Hoje</h2>
+  <!-- ============================================================
+       OFERTA
+       ============================================================ -->
+  <section class="section section--paper" id="oferta">
+    <div class="offer reveal">
 
-      <p class="offer-sub">
-        Em 30 dias vocês podem sair do automático e voltar a se escolher. Mesmo com a rotina e com pouco tempo.
+      <div class="guarantee-seal" style="border-color: var(--red); color: var(--red);" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+      </div>
+
+      <h2 class="display h2">Pueden comenzar hoy</h2>
+
+      <p class="lede" style="margin-top: var(--s2);">
+        En 30 días pueden salir del automático y volver a elegirse cada día.
+        Incluso con la rutina y con poco tiempo.
       </p>
-      <p class="offer-sub" style="margin-top:8px;">Você recebe:</p>
 
       <ul class="offer-list">
-        <li><strong>Diário de Missões</strong> — 60 missões simples para reacender a vida a dois.</li>
-        <li><strong>Planejador de Encontros</strong> — ideias prontas pra criar momentos especiais.</li>
-        <li><strong>15 Perguntas Para Elevar a Temperatura</strong> — conversas que despertam intimidade e proximidade.</li>
+        <li><strong>Diario de Misiones</strong> — 60 misiones sencillas para despertar la vida en pareja.</li>
+        <li><strong>Sobres temáticos + diario de experiencias</strong> — para vivir y registrar cada momento.</li>
+        <li><strong>Planificador de Encuentros</strong> — ideas listas para crear momentos especiales juntos.</li>
+        <li><strong>15 Preguntas Para Subir la Temperatura</strong> — conversaciones que despiertan la cercanía.</li>
       </ul>
 
-      <p class="offer-anchor">Valor total de todos os itens: <del>R$ 69,90</del></p>
-      <p class="offer-for">Por apenas:</p>
+      <!-- ===== PRECIO — editar aquí y en .price-reframe si cambia ===== -->
+      <p class="price-anchor">Valor total de todos los ítems: <del>$119.000 COP</del></p>
+      <p class="price-label">Precio de lanzamiento:</p>
+      <div class="price">$59.900 COP</div>
+      <p class="price-reframe">Menos de $2.000 COP al día para volver a elegirse cada día.</p>
 
-      <div class="final-price">R$ 27,90</div>
+      <a href="https://pay.hotmart.com/R105503656J?off=2j78xysu"
+         class="btn btn--lg" data-checkout data-cta="oferta">EMPEZAR HOY</a>
 
-      <!-- ✅ ADICIONADO: reframe de preço por dia -->
-      <p class="price-reframe">Menos de R$ 1 por dia para voltar a se escolher todo dia.</p>
+      <p class="offer-trust">Acceso inmediato · Compra 100% segura · Garantía de 30 días</p>
 
-      <!-- ✅ ALTERADO: urgência com contador regressivo real -->
-      <div class="countdown-wrap">
-        <span class="countdown-label">Oferta válida por mais:</span>
-        <div class="countdown-timer">
-          <span class="countdown-unit" id="cd-h">03</span>
-          <span class="countdown-sep">:</span>
-          <span class="countdown-unit" id="cd-m">00</span>
-          <span class="countdown-sep">:</span>
-          <span class="countdown-unit" id="cd-s">00</span>
+      <div class="delivery">
+        Descarguen el PDF, imprímanlo y empiecen hoy mismo.
+      </div>
+
+      <div class="guarantee">
+        <div class="guarantee-seal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
         </div>
-      </div>
-      <p class="countdown-revert-note">Após esse prazo, o valor volta para R$ 69,90.</p>
-
-      <a href="https://pay.hotmart.com/F100778435S?checkoutMode=10" class="final-cta-button cta-pulse">
-        COMEÇAR HOJE!
-      </a>
-
-      <!-- ✅ ADICIONADO: prova social abaixo do botão -->
-      <p class="cta-social-proof">+ de 500 casais já começaram. O próximo passo é de vocês.</p>
-
-      <p class="offer-trust">Acesso imediato • Compra 100% segura • Garantia de 7 dias</p>
-
-      <div class="delivery-badge">
-        ⚡ Acesso imediato — baixe o PDF, imprima e comece hoje mesmo.
-      </div>
-
-      <!-- ✅ ALTERADO: copy da garantia expandido -->
-      <div class="guarantee-box">
-        <img class="guarantee-seal" src="https://i.imgur.com/rR8DWlX.png" alt="Garantia de 7 dias">
-        <div class="guarantee-title">Garantia incondicional de 7 dias</div>
-        <p class="guarantee-text">
-          Se em uma semana vocês não sentirem nenhuma diferença, devolvemos 100% do valor — sem perguntas, sem burocracia. O risco é todo nosso.
+        <h3>Garantía incondicional de 30 días</h3>
+        <p>
+          Tienen los 30 días completos del diario para probarlo. Si al terminar no sienten
+          ninguna diferencia, escriben un correo y les devolvemos el 100% del valor,
+          sin preguntas y sin trámites. El riesgo es completamente nuestro.
         </p>
       </div>
+
     </div>
   </section>
 
-  <!-- Transição -->
-  <div style="height: 26px; background: linear-gradient(to bottom, #FFFFFF, #F5F5DC);"></div>
+  <div class="perf" aria-hidden="true"></div>
 
-  <!-- FAQ -->
-  <section style="background-color:#F5F5DC; padding:15px 20px;">
-    <div class="faq-container">
-      <h2 class="faq-title-animated" style="font-family:'Special Elite', monospace; font-size:2.5em; text-align:center; margin-bottom:50px;">
-        Ainda tem alguma dúvida?
-      </h2>
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="section section--card">
+    <div class="wrap center">
+      <h2 class="display h2 reveal">¿Tienen alguna duda?</h2>
 
-      <div class="faq-item">
-        <p class="faq-question">1. Para quem é?</p>
-        <p class="faq-answer">O Diário de Missões é feito para casais que sentem que a rotina tomou conta e querem reconectar o relacionamento — com leveza e sem precisar de terapia ou conversas difíceis.</p>
+      <div class="faq">
+
+        <details>
+          <summary>¿Para quién es?</summary>
+          <p>Para parejas que sienten que la rutina se apoderó de todo y quieren reconectar su relación de forma sencilla, sin necesidad de terapia ni conversaciones difíciles. Funciona igual si llevan 1 año o 15 juntos.</p>
+        </details>
+
+        <details>
+          <summary>¿Cómo lo recibo?</summary>
+          <p>El acceso es inmediato. En cuanto se confirme el pago, les llega un correo con un enlace para descargar todos los archivos en PDF. Solo tienen que imprimir y comenzar.</p>
+        </details>
+
+        <details>
+          <summary>No tengo impresora en casa. ¿Igual puedo usarlo?</summary>
+          <p>Sí. Pueden llevar el PDF en una USB o enviarlo por WhatsApp a cualquier papelería o fotocopiadora: la impresión completa suele costar entre $8.000 y $15.000 COP. También pueden leer las misiones directo desde el celular e imprimir solo los sobres, o incluso nada.</p>
+        </details>
+
+        <details>
+          <summary>¿Puedo imprimirlo en casa?</summary>
+          <p>Claro que sí. Está diseñado para imprimirse en cualquier impresora doméstica, a color o en blanco y negro.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué papel recomiendan?</summary>
+          <p>Para una experiencia más especial, un papel más grueso (120 g/m² o 180 g/m²) para las cartas y los sobres. Pero funciona perfectamente con papel bond común.</p>
+        </details>
+
+        <details>
+          <summary>¿Hay misiones incómodas o subidas de tono?</summary>
+          <p>No hay nada explícito ni nada que los obligue a salir de su zona de confort. Las misiones de intimidad se trabajan desde la cercanía y el contacto, y ustedes deciden el ritmo. Si una carta no les cuadra, la pasan.</p>
+        </details>
+
+        <details>
+          <summary>¿El pago es seguro?</summary>
+          <p>Totalmente. Todo el proceso lo gestiona Hotmart, una de las plataformas de productos digitales más grandes del mundo. Pueden pagar con tarjeta, PSE, Nequi o efectivo, según las opciones disponibles en su país.</p>
+        </details>
+
       </div>
 
-      <div class="faq-item">
-        <p class="faq-question">2. Como vou receber o "Diário de Missões"?</p>
-        <p class="faq-answer">O acesso é imediato! Assim que seu pagamento for confirmado, você receberá um e-mail com um link exclusivo para baixar todos os arquivos em formato PDF. Basta imprimir e começar.</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-question">3. Posso imprimir em casa?</p>
-        <p class="faq-answer">Sim! O jogo foi desenhado para ser impresso facilmente em qualquer impressora caseira, seja ela colorida ou preto e branco.</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-question">4. Qual papel você recomenda?</p>
-        <p class="faq-answer">Para uma experiência premium, recomendamos um papel mais grosso (120g/m² ou 180g/m²) para as cartas e envelopes. Mas ele funciona perfeitamente no sulfite comum.</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="faq-question">5. O pagamento é seguro?</p>
-        <p class="faq-answer">Totalmente seguro. Todo o processo de pagamento é gerenciado pela Hotmart, uma das maiores e mais seguras plataformas de produtos digitais do mundo.</p>
-      </div>
+      <p style="margin-top: var(--s5);">
+        <a href="https://pay.hotmart.com/R105503656J?off=2j78xysu"
+           class="btn btn--lg" data-checkout data-cta="faq">EMPEZAR HOY</a>
+      </p>
+      <p class="btn-note">Garantía de 30 días · Acceso inmediato</p>
     </div>
   </section>
 
-  <!-- Scripts -->
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-brand">SOLO NOSOTROS DOS</div>
+
+      <nav class="footer-links">
+        <!-- TODO: crear estas páginas antes de activar la campaña -->
+        <a href="/politica-de-privacidad">Política de privacidad</a>
+        <a href="/terminos">Términos y condiciones</a>
+        <a href="/reembolsos">Política de reembolso</a>
+        <a href="mailto:hola@solonosotrosdos.com">Contacto</a>
+      </nav>
+
+      <p class="footer-legal">
+        Producto digital en formato PDF para imprimir. No se envía material físico.
+        El Diario de Misiones es una herramienta de entretenimiento y conexión para parejas;
+        no sustituye terapia ni acompañamiento psicológico profesional.
+        Los pagos son procesados por Hotmart. Este sitio no forma parte de Meta Platforms, Inc.
+        ni está avalado por Meta.
+      </p>
+
+      <p class="footer-legal" style="margin-top: var(--s2);">
+        © <span id="year">2026</span> Solo Nosotros Dos. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       CTA FIJO MÓVIL
+       ============================================================ -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://pay.hotmart.com/R105503656J?off=2j78xysu"
+       data-checkout data-cta="sticky">EMPEZAR HOY — $59.900 COP</a>
+    <span>Acceso inmediato · Garantía de 30 días</span>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
   <script>
-    /* ===== Para o pulso no scroll ===== */
-    (function () {
-      let stopped = false;
+  (function () {
+    'use strict';
 
-      function stopPulse() {
-        if (stopped) return;
-        stopped = true;
-        document.querySelectorAll('.cta-pulse').forEach((el) => el.classList.remove('cta-pulse'));
-        window.removeEventListener('scroll', onScroll, { passive: true });
-        window.removeEventListener('wheel', onScroll, { passive: true });
-        window.removeEventListener('touchmove', onScroll, { passive: true });
-        window.removeEventListener('keydown', onKey);
+    /* ---------- 1. UTMs + sck en los enlaces de checkout ----------
+       Meta manda los parámetros en la URL de la landing.
+       Esto los reenvía a Hotmart para poder atribuir la venta al creativo. */
+    function tagCheckoutLinks() {
+      var qs = new URLSearchParams(window.location.search);
+      var carry = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid','ttclid'];
+      var pass = {};
+
+      carry.forEach(function (k) {
+        var v = qs.get(k);
+        if (v) pass[k] = v;
+      });
+
+      var sck = [
+        pass.utm_source   || 'direct',
+        pass.utm_campaign || 'na',
+        pass.utm_content  || 'na',
+        pass.utm_term     || 'na'
+      ].join('|').replace(/[^\w|.\-]/g, '_').slice(0, 100);
+
+      document.querySelectorAll('a[data-checkout]').forEach(function (a) {
+        var url;
+        try { url = new URL(a.href); } catch (e) { return; }
+
+        Object.keys(pass).forEach(function (k) { url.searchParams.set(k, pass[k]); });
+        url.searchParams.set('sck', sck);
+        if (pass.utm_source) url.searchParams.set('src', pass.utm_source);
+
+        a.href = url.toString();
+      });
+    }
+
+    /* ---------- 2. Eventos para GTM / Meta Pixel ---------- */
+    window.dataLayer = window.dataLayer || [];
+
+    window.dataLayer.push({
+      event: 'view_content',
+      content_name: 'Diario de Misiones',
+      content_ids: ['diario-misiones-co'],
+      content_type: 'product',
+      value: 59900,
+      currency: 'COP'
+    });
+
+    function bindCheckoutEvents() {
+      document.querySelectorAll('a[data-checkout]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          window.dataLayer.push({
+            event: 'initiate_checkout',
+            cta_position: a.getAttribute('data-cta') || 'unknown',
+            content_name: 'Diario de Misiones',
+            content_ids: ['diario-misiones-co'],
+            value: 59900,
+            currency: 'COP'
+          });
+        });
+      });
+    }
+
+    /* ---------- 3. Scroll depth (útil para diagnosticar la landing) ---------- */
+    function bindScrollDepth() {
+      var marks = [25, 50, 75, 90];
+      var fired = {};
+
+      window.addEventListener('scroll', function () {
+        var h = document.documentElement;
+        var total = h.scrollHeight - h.clientHeight;
+        if (total <= 0) return;
+        var pct = (h.scrollTop || document.body.scrollTop) / total * 100;
+
+        marks.forEach(function (m) {
+          if (!fired[m] && pct >= m) {
+            fired[m] = true;
+            window.dataLayer.push({ event: 'scroll_depth', percent: m });
+          }
+        });
+      }, { passive: true });
+    }
+
+    /* ---------- 4. CTA fijo móvil ---------- */
+    function bindStickyCta() {
+      var bar  = document.getElementById('stickyCta');
+      var hero = document.querySelector('.hero');
+      var offer = document.getElementById('oferta');
+      if (!bar || !hero) return;
+
+      function update() {
+        var pastHero = window.scrollY > hero.offsetHeight;
+        var atOffer  = offer &&
+          window.scrollY + window.innerHeight > offer.offsetTop + 120 &&
+          window.scrollY < offer.offsetTop + offer.offsetHeight;
+
+        bar.classList.toggle('is-visible', pastHero && !atOffer);
       }
 
-      function onScroll() { stopPulse(); }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    }
 
-      function onKey(e) {
-        const keys = ['ArrowDown','ArrowUp','PageDown','PageUp',' ','Spacebar'];
-        if (keys.includes(e.key)) stopPulse();
+    /* ---------- 5. Reveal al hacer scroll ---------- */
+    function bindReveal() {
+      var els = document.querySelectorAll('.reveal');
+
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-in'); });
+        return;
       }
 
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('wheel', onScroll, { passive: true });
-      window.addEventListener('touchmove', onScroll, { passive: true });
-      window.addEventListener('keydown', onKey);
-    })();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
-    /* ===== Contador regressivo ===== */
-    (function () {
-      /* Persiste o deadline na sessão para não reiniciar ao recarregar */
-      const KEY = 'dm_offer_deadline';
-      let deadline = parseInt(sessionStorage.getItem(KEY) || '0', 10);
+      els.forEach(function (el) { io.observe(el); });
+    }
 
-      if (!deadline || deadline < Date.now()) {
-        /* 23h 47min a partir de agora */
-        deadline = Date.now() + (3 * 3600) * 1000;
-        sessionStorage.setItem(KEY, deadline);
-      }
+    /* ---------- init ---------- */
+    tagCheckoutLinks();
+    bindCheckoutEvents();
+    bindScrollDepth();
+    bindStickyCta();
+    bindReveal();
 
-      const hEl = document.getElementById('cd-h');
-      const mEl = document.getElementById('cd-m');
-      const sEl = document.getElementById('cd-s');
-
-      function pad(n) { return String(n).padStart(2, '0'); }
-
-      function tick() {
-        const diff = Math.max(0, deadline - Date.now());
-        const h = Math.floor(diff / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        if (hEl) hEl.textContent = pad(h);
-        if (mEl) mEl.textContent = pad(m);
-        if (sEl) sEl.textContent = pad(s);
-        if (diff > 0) setTimeout(tick, 1000);
-      }
-
-      tick();
-    })();
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
   </script>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFMX9LPF"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
 
 </body>
 </html>
