@@ -78,7 +78,6 @@
        ============================================================ */
     *, *::before, *::after{ box-sizing: border-box; }
 
-    /* CORREÇÃO 1 — trava o scroll lateral na raiz, não só no body */
     html{
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
@@ -370,8 +369,6 @@
 
     .include-block p{ color: var(--ink-2); }
 
-    /* CORREÇÃO 2 — tamanhos das imagens agora em classes, não em style inline.
-       Style inline vencia o img{max-width:100%} e estourava a tela no celular. */
     .fig{
       width: 100%;
       margin: 0 auto var(--s3) auto;
@@ -415,9 +412,9 @@
        ============================================================ */
     .cats{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--s2);
-      max-width: 900px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--s3);
+      max-width: 760px;
       margin: var(--s4) auto 0 auto;
     }
 
@@ -571,7 +568,6 @@
     /* ============================================================
        FAQ
        ============================================================ */
-    /* CORREÇÃO 3 — o FAQ herdava text-align:center da .wrap.center */
     .faq{
       max-width: var(--measure);
       margin: var(--s4) auto 0 auto;
@@ -663,7 +659,6 @@
     /* ============================================================
        CTA FIXO (mobile)
        ============================================================ */
-    /* CORREÇÃO 4 — barra mais discreta, conteúdo centralizado e limitado */
     .sticky-cta{
       position: fixed;
       left: 0;
@@ -928,12 +923,12 @@
 
   <!-- ============================================================
        CATEGORÍAS DE MISIONES
-       AJUSTAR nombres/cantidades al contenido real del PDF.
+       Números reales según el PDF: Detalles 25, Complicidad+Intimidad 21, Conversación 14.
        ============================================================ -->
   <section class="section section--paper center">
     <div class="wrap">
       <p class="eyebrow">Qué hay adentro</p>
-      <h2 class="display h2 reveal">Las 60 misiones, en cuatro terrenos</h2>
+      <h2 class="display h2 reveal">Las 60 misiones, en tres terrenos</h2>
 
       <p class="lede reveal" style="margin-top: var(--s3);">
         No son retos al azar. Cada bloque trabaja una parte distinta de la relación,
@@ -942,24 +937,19 @@
 
       <div class="cats">
         <div class="cat reveal">
-          <div class="cat-count">15</div>
-          <h3>Conversación</h3>
-          <p>Preguntas y momentos que sacan a la pareja del "¿cómo te fue?" automático.</p>
-        </div>
-        <div class="cat reveal">
-          <div class="cat-count">15</div>
+          <div class="cat-count">25</div>
           <h3>Detalles</h3>
           <p>Gestos pequeños que se notan: los que hacían al principio y dejaron de hacer.</p>
         </div>
         <div class="cat reveal">
-          <div class="cat-count">15</div>
+          <div class="cat-count">21</div>
           <h3>Complicidad</h3>
-          <p>Retos ligeros para reírse juntos y volver a ser equipo, no compañeros de casa.</p>
+          <p>Juegos, cercanía y contacto: reírse juntos, tocarse, volver a ser equipo.</p>
         </div>
         <div class="cat reveal">
-          <div class="cat-count">15</div>
-          <h3>Intimidad</h3>
-          <p>Cercanía y contacto, sin presión y sin nada incómodo. A su ritmo.</p>
+          <div class="cat-count">14</div>
+          <h3>Conversación</h3>
+          <p>Preguntas y momentos que sacan a la pareja del "¿cómo te fue?" automático.</p>
         </div>
       </div>
 
